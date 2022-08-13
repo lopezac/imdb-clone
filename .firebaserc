@@ -1,5 +1,7 @@
 {
   "projects": {
     "default": "imdb-9b89f"
-  }
+  },
+  "targets": {},
+  "etags": {}
 }
