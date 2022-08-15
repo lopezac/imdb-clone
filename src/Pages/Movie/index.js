@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Routes, Route } from "react-router-dom";
 
 import MoviePage from "../../Components/Movie";
 
@@ -13,7 +13,7 @@ function Movie() {
   }, []);
 
   async function getMovieData(id) {
-    // (/watch/providers), critique external page, (/external_ids)
+    // (/watch/providers), critique external page, (/external_ids), collection
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${TMDB_API}&append_to_response=images,videos,credits,keywords,recommendations`
     );
@@ -21,7 +21,19 @@ function Movie() {
     return result;
   }
 
-  return <MoviePage data={data} />;
+  return (
+    <Routes>
+      <Route path="/" element={<MoviePage data={data} />} />
+      <Route path="reviews" />
+      <Route path="cast" />
+      <Route path="videos" />
+      <Route path="images">
+        <Route path="backdrops" />
+        <Route path="logos" />
+        <Route path="posters" />
+      </Route>
+    </Routes>
+  );
 }
 
 export default Movie;

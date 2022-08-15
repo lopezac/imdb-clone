@@ -1,8 +1,3 @@
-// import { initializeApp } from "firebase/app";
-// import { useEffect, useState } from "react";
-// import { firebaseConfig } from "./Config/firebase-config";
-// const TMDB_API = "";
-// initializeApp(firebaseConfig);
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Home from "./Pages/Home/index";
@@ -16,9 +11,7 @@ function RouteSwitch() {
           <Route index element={<Home />} />
 
           <Route path="movie">
-            <Route path=":movieId" element={<Movie />}>
-              <Route path="reviews" />
-              <Route path="cast" />
+            <Route path=":movieId/*" element={<Movie />}>
             </Route>
           </Route>
 
@@ -33,10 +26,10 @@ function RouteSwitch() {
           </Route>
 
           <Route path="person">
-            <Route path=":personNum" />
+            <Route path=":personId" />
           </Route>
 
-          <Route path="user/:userNum">
+          <Route path="user/:userId">
             <Route path="watchlist" />
             <Route path="favoritelist" />
             <Route path="ratings" />
