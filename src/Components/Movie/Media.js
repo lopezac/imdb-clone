@@ -3,6 +3,8 @@ import { object } from "prop-types";
 
 import { capitalize } from "../../Utils/format";
 import { Scroller } from "../../Styles/Scroller";
+import VideoCard from "../Card/VideoCard";
+import PosterCard from "../Card/PosterCard";
 
 function Media({ videos, images }) {
   const [media, setMedia] = useState([]);
@@ -43,7 +45,15 @@ function Media({ videos, images }) {
             );
           })}
         </ul>
-        <Scroller></Scroller>
+        <Scroller>
+          {content && content.map(item => {
+            return (
+              <li>
+                {current === "videos" ? <VideoCard name={item.name} url={item.key} /> : <PosterCard url={item.file_path} />} 
+              </li>
+            );
+          })}
+        </Scroller>
       </div>
     </div>
   );

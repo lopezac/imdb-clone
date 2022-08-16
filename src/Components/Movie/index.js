@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 import Main from "./Main";
 
 function MoviePage({ data }) {
-  // console.log("data at movie page", data);
+  console.log("data at movie page", data);
 
   if (!data) return;
   return (

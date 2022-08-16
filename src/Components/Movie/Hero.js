@@ -10,7 +10,6 @@ import CreatorsList from "./CreatorsList";
 import { getImg } from "../../Utils/various";
 
 function Hero({ data }) {
-  if (!data) return;
   console.log("data at hero", data);
   return (
     <div>
