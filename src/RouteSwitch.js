@@ -2,21 +2,23 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Home from "./Pages/Home/index";
 import Movie from "./Pages/Movie";
+import Tv from "./Pages/Tv";
+import ScrollToTop from "./Utils/ScrollToTop";
 
 function RouteSwitch() {
   return (
     <BrowserRouter basename="/">
+      <ScrollToTop />
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
 
           <Route path="movie">
-            <Route path=":movieId/*" element={<Movie />}>
-            </Route>
+            <Route path=":movieId/*" element={<Movie />}></Route>
           </Route>
 
           <Route path="tv">
-            <Route path=":tvId">
+            <Route path=":tvId/*" element={<Tv />}>
               <Route path="reviews" />
               <Route path="seasons" />
               <Route path="season/:seasonNum">

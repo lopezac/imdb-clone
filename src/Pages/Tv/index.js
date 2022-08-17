@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import { useParams, Routes, Route } from "react-router-dom";
 
-import MoviePage from "../../Components/Movie";
-import { getMovieData } from "../../Config/tmdb-api";
+import TvPage from "../../Components/Tv/index";
+import { getTvData } from "../../Config/tmdb-api";
 
-function Movie() {
+function Tv() {
   const [data, setData] = useState(null);
-  const movieId = useParams().movieId;
+  const tvId = useParams().tvId;
 
   useEffect(() => {
-    getMovieData(movieId).then((movieData) => setData(movieData));
-  }, [movieId]);
+    getTvData(tvId).then((tvData) => setData(tvData));
+  }, [tvId]);
 
   return (
     <Routes>
-      <Route path="/" element={<MoviePage data={data} />} />
+      <Route path="/" element={<TvPage data={data} />} />
       <Route path="reviews" />
       <Route path="cast" />
       <Route path="videos" />
@@ -27,4 +27,4 @@ function Movie() {
   );
 }
 
-export default Movie;
+export default Tv;

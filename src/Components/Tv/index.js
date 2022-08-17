@@ -1,11 +1,13 @@
+import { object } from "prop-types";
+
 import Hero from "./Hero/Hero";
 import Sidebar from "./Sidebar/Sidebar";
 import Main from "./Main/Main";
 import { MovieDiv } from "../../Assets/Styles/MovieDivs";
 
-function MoviePage({ data }) {
+function TvPage({ data }) {
   if (!data) return;
-  console.log("data at movie page", data);
+  console.log("data at tv page", data);
   return (
     <MovieDiv>
       <Hero data={data} />
@@ -15,4 +17,8 @@ function MoviePage({ data }) {
   );
 }
 
-export default MoviePage;
+TvPage.propTypes = {
+  data: object,
+};
+
+export default TvPage;

@@ -1,7 +1,7 @@
 import { array } from "prop-types";
 import { useEffect, useState } from "react";
-import { joinUpperCase } from "../../Utils/format";
-import { pushToObject } from "../../Utils/various";
+import { joinUpperCase } from "../../../Utils/format";
+import { pushToObject } from "../../../Utils/various";
 
 function CreatorsList({ crew }) {
   const [creators, setCreators] = useState({});

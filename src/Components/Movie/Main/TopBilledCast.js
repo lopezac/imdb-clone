@@ -1,6 +1,6 @@
 import { array } from "prop-types";
-import ActorCard from "../Card/ActorCard";
-import { Scroller } from "../../Styles/Scroller";
+import ActorCard from "../../Card/ActorCard";
+import { Scroller } from "../../../Assets/Styles/Scroller";
 
 function TopBilledCast({ cast }) {
   const topBilledCast = get(cast);

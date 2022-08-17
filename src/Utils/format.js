@@ -27,3 +27,13 @@ export function formatMinutes(duration) {
 export function capitalize(word) {
   return word[0].toUpperCase() + word.slice(1);
 }
+
+export function getLanguage(code) {
+  // transforms code "en" to "English"
+  const languagesNames = new Intl.DisplayNames(["en"], { type: "language" });
+  return languagesNames.of(code);
+}
+
+export function formatMoney(num) {
+  return num.toLocaleString("en-US");
+}
