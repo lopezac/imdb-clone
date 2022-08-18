@@ -5,6 +5,11 @@ import RecommendCard from "../../Card/RecommendCard";
 
 function Recommendations({ data }) {
   if (!data) return;
+
+  function getTitle(movie) {
+    return movie.title ? movie.title : movie.name;
+  }
+
   return (
     <div>
       <h2>Recommendations</h2>
@@ -13,7 +18,7 @@ function Recommendations({ data }) {
           return (
             <RecommendCard
               key={movie.id}
-              name={movie.title}
+              name={getTitle(movie)}
               img={movie.backdrop_path}
               id={movie.id}
             />

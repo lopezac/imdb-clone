@@ -1,6 +1,8 @@
 import { array } from "prop-types";
+
 import ActorCard from "../../Card/ActorCard";
 import { Scroller } from "../../../Assets/Styles/Scroller";
+import { useIsAMovie } from "../../../Utils/various";
 
 function TopBilledCast({ cast }) {
   const topBilledCast = get(cast);
@@ -11,7 +13,7 @@ function TopBilledCast({ cast }) {
 
   return (
     <div>
-      <h2>Top Billed Cast</h2>
+      <h2>{useIsAMovie() ? "Top Billed" : "Series"} Cast</h2>
       <Scroller>
         {topBilledCast.map((actor) => {
           return (

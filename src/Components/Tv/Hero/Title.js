@@ -1,4 +1,4 @@
-import { number, string } from "prop-types";
+import { string } from "prop-types";
 
 import { getYear } from "../../../Utils/format";
 
@@ -12,7 +12,7 @@ function Title({ title, airDate }) {
 
 Title.propTypes = {
   title: string,
-  airDate: number,
+  airDate: string,
 };
 
 export default Title;

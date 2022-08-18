@@ -5,7 +5,14 @@ import { pushToObject } from "../../../Utils/various";
 
 function CreatorsList({ crew }) {
   const [creators, setCreators] = useState({});
-  const mainRoles = ["characters", "director", "writer", "screenplay", "story"];
+  const mainRoles = [
+    "characters",
+    "director",
+    "writer",
+    "screenplay",
+    "story",
+    "creator",
+  ];
 
   useEffect(() => {
     const newCreators = getCreators(crew);

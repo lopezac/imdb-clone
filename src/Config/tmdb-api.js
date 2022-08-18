@@ -12,7 +12,7 @@ export async function getMovieData(id) {
 export async function getTvData(id) {
   // (/watch/providers), critique external page
   const response = await fetch(
-    `https://api.themoviedb.org/3/tv/${id}?api_key=${TMDB_API}&append_to_response=images,videos,credits,keywords,recommendations,external_ids`
+    `https://api.themoviedb.org/3/tv/${id}?api_key=${TMDB_API}&append_to_response=images,videos,aggregate_credits,keywords,recommendations,external_ids`
   );
   const result = await response.json();
   return result;

@@ -5,7 +5,7 @@ function TvFacts({ genres, runtime }) {
   return (
     <div>
       <p>{formatArray(genres)}</p>
-      <p>{formatMinutes(runtime)}</p>
+      <p>{runtime}m</p>
     </div>
   );
 }
