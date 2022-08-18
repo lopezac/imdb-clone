@@ -1,4 +1,4 @@
-import { format, formatDuration } from "date-fns";
+import { format } from "date-fns";
 
 export function getYear(dateStr) {
   const date = dateStr.split("-");

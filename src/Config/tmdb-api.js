@@ -25,3 +25,11 @@ export async function getCollectionData(id) {
   const result = await response.json();
   return result;
 }
+
+export async function getPersonData(id) {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/person/${id}?api_key=${TMDB_API}&append_to_response=movie_credits,combined_credits`
+  );
+  const result = await response.json();
+  return result;
+}

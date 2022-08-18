@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Home from "./Pages/Home/index";
 import Movie from "./Pages/Movie";
+import Person from "./Pages/Person";
 import Tv from "./Pages/Tv";
 import ScrollToTop from "./Utils/ScrollToTop";
 
@@ -14,7 +15,7 @@ function RouteSwitch() {
           <Route index element={<Home />} />
 
           <Route path="movie">
-            <Route path=":movieId/*" element={<Movie />}></Route>
+            <Route path=":movieId/*" element={<Movie />} />
           </Route>
 
           <Route path="tv">
@@ -28,7 +29,7 @@ function RouteSwitch() {
           </Route>
 
           <Route path="person">
-            <Route path=":personId" />
+            <Route path=":personId/*" element={<Person />} />
           </Route>
 
           <Route path="user/:userId">
