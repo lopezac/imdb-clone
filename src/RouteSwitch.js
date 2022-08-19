@@ -11,7 +11,7 @@ function RouteSwitch() {
     <BrowserRouter basename="/">
       <ScrollToTop />
       <Routes>
-        <Route path="/">
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
 
           <Route path="movie">

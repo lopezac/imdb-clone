@@ -6,7 +6,7 @@ import { getImg } from "../../Utils/various";
 function RecommendCard({ img, name, id }) {
   return (
     <li>
-      <StyledLink to={`../../${id}`}>
+      <StyledLink to={`/movie/${id}`}>
         <img src={getImg(img)} alt={name} width="250" />
         <p>{name}</p>
       </StyledLink>

@@ -4,7 +4,7 @@ import ReactPlayer from "react-player";
 function VideoCard({name, url}) {
   return (
     <>
-      <ReactPlayer url={`https://www.youtube.com/watch?v=${url}`}/>
+      <ReactPlayer url={`https://www.youtube.com/watch?v=${url}`} alt={name}/>
     </>
   );
 }
