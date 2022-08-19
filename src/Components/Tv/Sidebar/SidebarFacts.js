@@ -16,6 +16,7 @@ function SidebarFacts({ data }) {
         {data.networks.map((network) => {
           return (
             <img
+              key={network.name}
               src={getImg(network.logo_path)}
               alt={network.name}
               width="100"

@@ -1,11 +1,17 @@
 import { format } from "date-fns";
 
 export function getYear(dateStr) {
+  if (!dateStr) return "";
   const date = dateStr.split("-");
   return format(new Date(date[0], date[1], date[2]), "y");
 }
 
+export function getAge(date) {
+  return new Date().getFullYear() - getYear(date);
+}
+
 export function formatDate(dateStr) {
+  if (!dateStr) return "";
   const date = dateStr.split("-");
   return format(new Date(date[0], date[1] - 1, date[2]), "dd/M/yyyy");
 }

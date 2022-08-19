@@ -4,7 +4,8 @@ import { Scroller } from "../../../Assets/Styles/Scroller";
 import RecommendCard from "../../Card/RecommendCard";
 
 function Recommendations({ data }) {
-  if (!data) return;
+  if (!data || !data.length) return;
+  console.log("recommendations data", data);
 
   function getTitle(movie) {
     return movie.title ? movie.title : movie.name;

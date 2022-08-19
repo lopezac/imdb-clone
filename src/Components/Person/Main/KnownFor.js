@@ -1,5 +1,5 @@
 import { Scroller } from "../../../Assets/Styles/Scroller";
-import { getImg } from "../../../Utils/various";
+import KnownMovieCard from "../../Card/KnownMovieCard";
 
 function KnownFor({ movies }) {
   function sortMovies(movies) {
@@ -14,14 +14,12 @@ function KnownFor({ movies }) {
           .slice(0, 8)
           .map((movie) => {
             return (
-              <li key={movie.id}>
-                <img
-                  src={getImg(movie.poster_path)}
-                  alt={movie.title}
-                  width="100"
-                />
-                <p>{movie.title}</p>
-              </li>
+              <KnownMovieCard
+                key={movie.id}
+                id={movie.id}
+                img={movie.poster_path}
+                title={movie.title}
+              />
             );
           })}
       </Scroller>

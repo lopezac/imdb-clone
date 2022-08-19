@@ -36,17 +36,29 @@ function Acting({ credits }) {
               title={getTitle(credit)}
               date={getDate(credit)}
               episodes={getEpisodeCount(credit)}
+              id={credit.id}
             />
           );
         })}
       </ol>
       {getDepartments(credits.crew).map((department) => {
         return (
-          <div>
+          <div key={department}>
             <h2>{department}</h2>
             <ol>
               {sortByYear(credits.crew).map((credit) => {
-                return <li></li>;
+                return (
+                  credit.department === department && (
+                    <CreditCard
+                      key={credit.credit_id}
+                      character={credit.job}
+                      title={getTitle(credit)}
+                      date={getDate(credit)}
+                      episodes={getEpisodeCount(credit)}
+                      id={credit.id}
+                    />
+                  )
+                );
               })}
             </ol>
           </div>

@@ -7,11 +7,16 @@ import HeroButtons from "./HeroButtons";
 import Overview from "./Overview";
 import Title from "./Title";
 import MovieFacts from "./MovieFacts";
+import PosterCard from "../../Card/PosterCard";
 
 function Hero({ data }) {
   return (
     <HeroDiv>
-      <img src={getImg(data.poster_path)} width="300" alt={data.title} />
+      <PosterCard
+        url={getImg(data.poster_path)}
+        name={data.title}
+        width="300"
+      />
       <div>
         <Title title={data.title} release_date={data.release_date} />
         <MovieFacts

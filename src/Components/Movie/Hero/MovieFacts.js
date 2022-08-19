@@ -2,6 +2,7 @@ import { number, array, string } from "prop-types";
 import { formatDate, formatArray, formatMinutes } from "../../../Utils/format";
 
 function MovieFacts({ release_date, genres, runtime }) {
+  console.log("array genres", genres);
   return (
     <div>
       <p>{formatDate(release_date)}</p>

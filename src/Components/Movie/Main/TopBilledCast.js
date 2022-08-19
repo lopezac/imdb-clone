@@ -22,6 +22,7 @@ function TopBilledCast({ cast }) {
               name={actor.name}
               character={actor.character}
               img={actor.profile_path}
+              id={actor.id}
             />
           );
         })}

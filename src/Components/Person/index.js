@@ -7,9 +7,10 @@ import Sidebar from "./Sidebar/Sidebar";
 function PersonPage({ data }) {
   console.log("person data at person page", data);
 
+  if (!data) return;
   return (
     <PersonDiv>
-      <Sidebar />
+      <Sidebar data={data} />
       <Main data={data} />
     </PersonDiv>
   );
