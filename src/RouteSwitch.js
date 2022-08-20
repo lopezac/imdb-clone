@@ -5,6 +5,8 @@ import Movie from "./Pages/Movie";
 import Person from "./Pages/Person";
 import Tv from "./Pages/Tv";
 import ScrollToTop from "./Utils/ScrollToTop";
+import Layout from "./Components/Layouts/index";
+import Search from "./Pages/Search/index";
 
 function RouteSwitch() {
   return (
@@ -13,6 +15,10 @@ function RouteSwitch() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+
+          <Route path="search">
+            <Route path=":query" element={<Search />} />
+          </Route>
 
           <Route path="movie">
             <Route path=":movieId/*" element={<Movie />} />

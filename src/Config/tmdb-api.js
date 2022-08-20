@@ -33,3 +33,11 @@ export async function getPersonData(id) {
   const result = await response.json();
   return result;
 }
+
+export async function getSearch(query) {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/search/multi?api_key=${TMDB_API}&query=${query}`
+  );
+  const result = await response.json();
+  return result;
+}
