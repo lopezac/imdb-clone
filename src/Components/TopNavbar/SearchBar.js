@@ -10,18 +10,20 @@ function SearchBar() {
   }
 
   function handleSubmit(e) {
-    console.log(input);
     e.preventDefault();
-    navigate(`/search/${input}`, {replace: true});
+    navigate(`/search/${input}`, { replace: true });
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="searchQuery" onChange={handleChange} />
-        <button type="submit">Search</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="searchQuery"
+        onChange={handleChange}
+        placeholder="Search for a movie, tv show, person...."
+      />
+      <button type="submit">Search</button>
+    </form>
   );
 }
 

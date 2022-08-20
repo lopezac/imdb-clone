@@ -2,40 +2,38 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import { getSearch } from "../../Config/tmdb-api";
+import SearchPage from "../../Components/Search/Main";
+import SettingsPanel from "../../Components/Search/SettingsPanel";
+import { SearchDiv } from "../../Assets/Styles/SearchDivs";
 
 function Search() {
   const query = useParams().query;
   const [data, setData] = useState(null);
   const [section, setSection] = useState("movie");
-  const [page, setPage] = useState(null);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    console.log("query", query);
-    getSearch(query).then(result => setData(result.results));
-    // change data, setPage to 1
-  }, [query]);
+    queryData();
+  }, [query, page, section]);
 
   useEffect(() => {
     if (!data) return;
     console.log("data", data);
-    for (const item of data) {
-      if (item.media_type !== section) continue;
-      console.log(item, item.media_type)
-    }
   }, [data]);
 
-  useEffect(() => {
-    // change data
-  }, [page]);
+  function queryData() {
+    getSearch(query, page, section).then((result) => setData(result.results));
+  }
 
-  useEffect(() => {
-    // change data???
-  }, [section]);
+  function updateSection(value) {
+    setSection(value);
+  }
 
   return (
-    <div>
-      search
-    </div>
+    <SearchDiv>
+      <SearchPage data={data} section={section} />
+      <SettingsPanel data={data} updateSection={updateSection} />
+    </SearchDiv>
   );
 }
 

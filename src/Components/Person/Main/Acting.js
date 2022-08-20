@@ -1,11 +1,8 @@
+import { getDate, getTitle } from "../../../Utils/various";
 import CreditCard from "../../Card/CreditCard";
 
 function Acting({ credits }) {
   console.log("credits", credits);
-
-  function getDate(credit) {
-    return credit.release_date ? credit.release_date : credit.first_air_date;
-  }
 
   function getEpisodeCount(credit) {
     return credit.media_type === "tv" ? credit.episode_count : 0;
@@ -13,10 +10,6 @@ function Acting({ credits }) {
 
   function sortByYear(array) {
     return array.sort((a, b) => (getDate(a) > getDate(b) ? -1 : 1));
-  }
-
-  function getTitle(credit) {
-    return credit.media_type === "tv" ? credit.name : credit.title;
   }
 
   function getDepartments(credits) {

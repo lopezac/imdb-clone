@@ -34,9 +34,25 @@ export async function getPersonData(id) {
   return result;
 }
 
-export async function getSearch(query) {
+export async function getSearch(query, page = "1", section = "movie") {
   const response = await fetch(
-    `https://api.themoviedb.org/3/search/multi?api_key=${TMDB_API}&query=${query}`
+    `https://api.themoviedb.org/3/search/${section}?api_key=${TMDB_API}&query=${query}&page=${page}&include_adult=true`
+  );
+  const result = await response.json();
+  return result;
+}
+
+export async function getPopular(section = "movie") {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/${section}/popular?api_key=${TMDB_API}`
+  );
+  const result = await response.json();
+  return result;
+}
+
+export async function getTrending(time = "day") {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/trending/all/${time}?api_key=${TMDB_API}`
   );
   const result = await response.json();
   return result;

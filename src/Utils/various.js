@@ -15,3 +15,11 @@ export function useIsAMovie() {
   const path = useLocation().pathname;
   return path.includes("movie");
 }
+
+export function getDate(credit) {
+  return credit.release_date ? credit.release_date : credit.first_air_date;
+}
+
+export function getTitle(credit) {
+  return credit.title ? credit.title : credit.name;
+}
