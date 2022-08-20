@@ -7,45 +7,49 @@ import Tv from "./Pages/Tv";
 import ScrollToTop from "./Utils/ScrollToTop";
 import Layout from "./Components/Layouts/index";
 import Search from "./Pages/Search/index";
+import {Firebase} from "./Config/firebase-config";
+import {FirebaseContext} from "./Config/firebase-context";
 
 function RouteSwitch() {
   return (
     <BrowserRouter basename="/">
       <ScrollToTop />
+      <FirebaseContext.Provider value={Firebase()}>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route path="/" element={<Layout />} >
+            <Route index element={<Home />} />
 
-          <Route path="search">
-            <Route path=":query" element={<Search />} />
-          </Route>
+            <Route path="search">
+              <Route path=":query" element={<Search />} />
+            </Route>
 
-          <Route path="movie">
-            <Route path=":movieId/*" element={<Movie />} />
-          </Route>
+            <Route path="movie">
+              <Route path=":movieId/*" element={<Movie />} />
+            </Route>
 
-          <Route path="tv">
-            <Route path=":tvId/*" element={<Tv />}>
-              <Route path="reviews" />
-              <Route path="seasons" />
-              <Route path="season/:seasonNum">
-                <Route path="episode/:episodeNum" />
+            <Route path="tv">
+              <Route path=":tvId/*" element={<Tv />}>
+                <Route path="reviews" />
+                <Route path="seasons" />
+                <Route path="season/:seasonNum">
+                  <Route path="episode/:episodeNum" />
+                </Route>
               </Route>
             </Route>
-          </Route>
 
-          <Route path="person">
-            <Route path=":personId/*" element={<Person />} />
-          </Route>
+            <Route path="person">
+              <Route path=":personId/*" element={<Person />} />
+            </Route>
 
-          <Route path="user/:userId">
-            <Route path="watchlist" />
-            <Route path="favoritelist" />
-            <Route path="ratings" />
-            <Route path="reviews" />
+            <Route path="user/:userId">
+              <Route path="watchlist" />
+              <Route path="favoritelist" />
+              <Route path="ratings" />
+              <Route path="reviews" />
+            </Route>
           </Route>
-        </Route>
       </Routes>
+        </FirebaseContext.Provider>
     </BrowserRouter>
   );
 }
