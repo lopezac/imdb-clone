@@ -1,22 +1,27 @@
-import { array } from "prop-types";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
 
-import { getMovieData } from "../../Config/tmdb-api";
+import { getMoviesData } from "../../Config/tmdb-api";
 import { getDate, getTitle } from "../../Utils/various";
 import MovieUserCard from "./MovieUserCard";
+import { FirebaseContext } from "../../Config/firebase-context";
 
-function Favorites({ moviesIds }) {
+function Favorites() {
   const [movies, setMovies] = useState([]);
   const [section, setSection] = useState("movie");
+  const userId = useParams().userId;
+  const firebase = useContext(FirebaseContext);
 
   useEffect(() => {
-    let tempMovies = [];
-    moviesIds.map(async (id) => {
-      const movie = await getMovieData(id);
-      if (movie.media_type === section) tempMovies.push(movie);
+    firebase.getUserFavorites(userId, section).then((moviesIds) => {
+      console.log("moviesIds", moviesIds);
+      setMovies(getMoviesData(moviesIds));
     });
-    setMovies(tempMovies);
   }, []);
+
+  useEffect(() => {
+    console.log("favorite movies", movies);
+  }, [movies])
 
   return (
     <div>
@@ -41,9 +46,5 @@ function Favorites({ moviesIds }) {
     </div>
   );
 }
-
-Favorites.propTypes = {
-  moviesIds: array,
-};
 
 export default Favorites;

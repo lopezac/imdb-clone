@@ -16,6 +16,10 @@ export function useIsAMovie() {
   return path.includes("movie");
 }
 
+export function isAMovieOrTv(data) {
+  return data.title ? "movie" : "tv";
+}
+
 export function getDate(credit) {
   return credit.release_date ? credit.release_date : credit.first_air_date;
 }

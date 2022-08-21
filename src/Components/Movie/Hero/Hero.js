@@ -1,7 +1,7 @@
 import { object } from "prop-types";
 
 import CreatorsList from "./CreatorsList";
-import { getImg } from "../../../Utils/various";
+import { getImg, isAMovieOrTv } from "../../../Utils/various";
 import { HeroDiv } from "../../../Assets/Styles/MovieDivs";
 import HeroButtons from "./HeroButtons";
 import Overview from "./Overview";
@@ -10,6 +10,7 @@ import MovieFacts from "./MovieFacts";
 import PosterCard from "../../Card/PosterCard";
 
 function Hero({ data }) {
+        console.log(data);
   return (
     <HeroDiv>
       <PosterCard
@@ -24,7 +25,7 @@ function Hero({ data }) {
           genres={data.genres}
           runtime={data.runtime}
         />
-        <HeroButtons />
+        <HeroButtons movieId={data.id} mediaType={isAMovieOrTv(data)} />
         <Overview tagline={data.tagline} overview={data.overview} />
         <CreatorsList crew={data.credits.crew} />
       </div>

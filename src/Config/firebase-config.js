@@ -1,5 +1,14 @@
 import { initializeApp } from "firebase/app";
-import { doc, getDoc, getDocs, getFirestore, setDoc } from "firebase/firestore";
+import { 
+  doc,
+  getDoc, 
+  getDocs, 
+  getFirestore,
+  setDoc,
+  collection,
+  query,
+  where,
+} from "firebase/firestore";
 import {
   getAuth,
   signInWithPopup,
@@ -83,8 +92,25 @@ export function Firebase() {
     return docSnap.data();
   }
 
-  async function getUserSubCollection(userId, subName) {
-    const querySnap = await getDocs();
+  async function getUserFavorites(userId, section) {
+    const subColRef = collection(db(), `users/${userId}/favorites`);
+    const q = query(subColRef, where("mediaType", "==", section))
+    const querySnap = await getDocs(q);
+    let data = [];
+    // try querySnap.docs instead of forEach
+    console.log("querySnap", querySnap);
+    querySnap.forEach((doc) => {
+      data.push({[doc.id]: doc.data()});
+      console.log(doc.id, "=>", doc.data());
+    });
+    return data;
+  }
+
+  async function addMovieToFavorites(movieId, mediaType) {
+    console.log("movieId, mediatype", movieId, mediaType);
+    const userId = auth().currentUser.uid;
+    const movieRef = doc(db(), `users/${userId}/favorites`, movieId.toString());
+    await setDoc(movieRef, { "mediaType": mediaType });
   }
 
   return {
@@ -99,5 +125,7 @@ export function Firebase() {
     addUserToDb,
     getUserData,
     handleSignIn,
+    getUserFavorites,
+    addMovieToFavorites
   };
 }

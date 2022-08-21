@@ -17,11 +17,12 @@ function UserProfile() {
   if (!userData) return;
   return (
     <Routes>
-      <Route index element={<User userData={userData} />} />
-      <Route path="watchlist" />
-      <Route path="favorites" element={<Favorites moviesIds={} />} />
-      <Route path="ratings" />
-      <Route path="reviews" />
+      <Route path="/" element={<User userData={userData} />}>
+        <Route path="watchlist" />
+        <Route path="favorites" element={<Favorites />} />
+        <Route path="ratings" />
+        <Route path="reviews" />
+      </Route>
     </Routes>
   );
 }

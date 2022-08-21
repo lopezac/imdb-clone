@@ -57,3 +57,12 @@ export async function getTrending(time = "day") {
   const result = await response.json();
   return result;
 }
+
+export async function getMoviesData(moviesId) {
+  let movies = [];
+  console.log("moviesIds at tmdb", moviesId);
+  moviesId.map((id) => {
+    return getMovieData(id).then(movie => movies.push(movie));
+  });
+  return movies;
+}
