@@ -1,6 +1,13 @@
 import { initializeApp } from "firebase/app";
-import {getFirestore} from "firebase/firestore";
-import {getAuth, signInWithPopup, GoogleAuthProvider, signOut} from "firebase/auth";
+import { doc, getDoc, getDocs, getFirestore, setDoc } from "firebase/firestore";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+} from "firebase/auth";
+
+import noImage from "../Assets/Images/no-user.jpg";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCLsWXIRi1PtpS-cymtLB2zf_cOyyb9sFY",
@@ -24,23 +31,73 @@ export function Firebase() {
   }
 
   async function signIn() {
-    console.log("sign in run")
-    const provider = new GoogleAuthProvider();
-    await signInWithPopup(auth(), provider);
+    console.log("sign in run");
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth(), provider);
+    } catch (error) {
+      console.log("error at sign in", error);
+    }
   }
 
   function signOutUser() {
-    signOut(auth()); 
+    signOut(auth());
   }
 
   function getProfileImgUrl() {
-    return auth().currentUser.photoUrl || "../Assets/Images/no-user.png"
+    return auth().currentUser.photoURL || noImage;
   }
 
   function getUserName() {
     return auth().currentUser.displayName;
   }
 
-  return { db, auth, signIn, signOutUser, getProfileImgUrl, getUserName };
-}
+  // function isUserSignedIn() {
+  //   return !!auth().currentUser;
+  // }
 
+  async function isUserInDb() {
+    const docRef = doc(db(), "users", auth().currentUser.uid);
+    const docSnap = await getDoc(docRef);
+    return !!docSnap.exists();
+  }
+
+  async function addUserToDb() {
+    const user = auth().currentUser;
+    await setDoc(doc(db(), "users", user.uid), {
+      name: user.displayName,
+      createdAt: user.metadata.creationTime,
+      photoURL: user.photoURL,
+    });
+  }
+
+  async function handleSignIn() {
+    await signIn();
+    if (await !isUserInDb()) await addUserToDb();
+  }
+
+  async function getUserData(id) {
+    console.log("id at getUserData", id);
+    const docRef = doc(db(), "users", id);
+    const docSnap = await getDoc(docRef);
+    return docSnap.data();
+  }
+
+  async function getUserSubCollection(userId, subName) {
+    const querySnap = await getDocs();
+  }
+
+  return {
+    db,
+    auth,
+    signIn,
+    signOutUser,
+    getProfileImgUrl,
+    getUserName,
+    // isUserSignedIn,
+    isUserInDb,
+    addUserToDb,
+    getUserData,
+    handleSignIn,
+  };
+}

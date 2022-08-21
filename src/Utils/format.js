@@ -6,6 +6,10 @@ export function getYear(dateStr) {
   return format(new Date(date[0], date[1], date[2]), "y");
 }
 
+export function getMonthAndYear(date) {
+  return format(new Date(date), "MMMM y");
+}
+
 export function getAge(date) {
   return new Date().getFullYear() - getYear(date);
 }

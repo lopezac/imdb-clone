@@ -36,7 +36,7 @@ export async function getPersonData(id) {
 
 export async function getSearch(query, page = "1", section = "movie") {
   const response = await fetch(
-    `https://api.themoviedb.org/3/search/${section}?api_key=${TMDB_API}&query=${query}&page=${page}&include_adult=true`
+    `https://api.themoviedb.org/3/search/${section}?api_key=${TMDB_API}&query=${query}&page=${page}`
   );
   const result = await response.json();
   return result;
