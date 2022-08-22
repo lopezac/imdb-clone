@@ -1,13 +1,15 @@
 import { initializeApp } from "firebase/app";
-import { 
+import {
   doc,
-  getDoc, 
-  getDocs, 
+  getDoc,
+  getDocs,
   getFirestore,
   setDoc,
   collection,
   query,
   where,
+  orderBy,
+  deleteDoc,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -92,25 +94,34 @@ export function Firebase() {
     return docSnap.data();
   }
 
-  async function getUserFavorites(userId, section) {
-    const subColRef = collection(db(), `users/${userId}/favorites`);
-    const q = query(subColRef, where("mediaType", "==", section))
+  async function getUserInteractions(userId, section, mediaType) {
+    const subColRef = collection(db(), `users/${userId}/${mediaType}`);
+    const q = query(subColRef, orderBy(section));
     const querySnap = await getDocs(q);
-    let data = [];
+    let data = {};
     // try querySnap.docs instead of forEach
-    console.log("querySnap", querySnap);
     querySnap.forEach((doc) => {
-      data.push({[doc.id]: doc.data()});
+      data[doc.id] = doc.data();
       console.log(doc.id, "=>", doc.data());
     });
     return data;
   }
 
-  async function addMovieToFavorites(movieId, mediaType) {
-    console.log("movieId, mediatype", movieId, mediaType);
+  async function addUserInteraction(movieId, mediaType, section, value) {
+    console.log("id, media section value", movieId, mediaType, section, value);
     const userId = auth().currentUser.uid;
-    const movieRef = doc(db(), `users/${userId}/favorites`, movieId.toString());
-    await setDoc(movieRef, { "mediaType": mediaType });
+    const movieRef = doc(
+      db(),
+      `users/${userId}/${mediaType}`,
+      movieId.toString()
+    );
+    setDoc(movieRef, { [section]: value }, { merge: true });
+  }
+
+  async function removeUserInteraction(movieId, section, mediaType) {
+    const userId = auth().currentUser.uid;
+    const movieRef = doc(db(), `users/${userId}/${mediaType}`, movieId);
+    await deleteDoc(movieRef);
   }
 
   return {
@@ -125,7 +136,8 @@ export function Firebase() {
     addUserToDb,
     getUserData,
     handleSignIn,
-    getUserFavorites,
-    addMovieToFavorites
+    getUserInteractions,
+    addUserInteraction,
+    removeUserInteraction,
   };
 }
