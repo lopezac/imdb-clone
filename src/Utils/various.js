@@ -1,9 +1,11 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 import noImage from "../Assets/Images/no-image.png";
 
-export function pushToObject(obj, property, elem) {
-  obj[property] ? obj[property].push(elem) : (obj[property] = [elem]);
+export function pushToObject(obj, key, elem) {
+  console.log("obj", obj, obj[key]);
+  if (obj[key]) obj[key]["jobs"].push(elem);
+  else obj[key]["jobs"] = [elem];
 }
 
 export function getImg(path) {
@@ -26,4 +28,8 @@ export function getDate(credit) {
 
 export function getTitle(credit) {
   return credit.title ? credit.title : credit.name;
+}
+
+export function useGetSection() {
+  return useParams()["*"];
 }

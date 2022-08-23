@@ -1,22 +1,39 @@
-import { string, number } from "prop-types";
+import { string, number, object } from "prop-types";
 import { StyledLink } from "../../Assets/Styles/Link";
 
 import { getImg } from "../../Utils/various";
+import FavoriteBtn from "../Buttons/FavoriteBtn";
+import RateBtn from "../Buttons/RateBtn";
+import RemoveBtn from "../Buttons/RemoveBtn";
+import WatchlistBtn from "../Buttons/WatchlistBtn";
 
-function MovieUserCard({ title, date, overview, img, id, mediaType }) {
+function MovieUserCard({
+  title,
+  date,
+  overview,
+  img,
+  id,
+  mediaType,
+  userData,
+}) {
+  if (!userData) return;
+  console.log("userData, ", userData);
   return (
     <li>
       <StyledLink to={`/${mediaType}/${id}`}>
         <img src={getImg(img)} alt={title} width="125" />
-        <div>
-          <h2>{title}</h2>
-          <p>{date}</p>
-          <p>{overview}</p>
-          <button>Favorite</button>
-          <button>Rating</button>
-          <button>Remove</button>
-        </div>
       </StyledLink>
+      <div>
+        <StyledLink to={`/${mediaType}/${id}`}>
+          <h2>{title}</h2>
+        </StyledLink>
+        <p>{date}</p>
+        <p>{overview}</p>
+        <FavoriteBtn />
+        <WatchlistBtn />
+        <RateBtn rating={userData.ratings} mediaType={mediaType} movieId={id} />
+        <RemoveBtn movieId={id} mediaType={mediaType} />
+      </div>
     </li>
   );
 }
@@ -28,6 +45,7 @@ MovieUserCard.propTypes = {
   img: string,
   id: number,
   mediaType: string,
+  userData: object,
 };
 
 export default MovieUserCard;

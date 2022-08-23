@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { number, string } from "prop-types";
 
 import { FirebaseContext } from "../../../Config/firebase-context";
-import FavoriteBtn from "../../User/FavoriteBtn";
-import WatchlistBtn from "../../User/WatchlistBtn";
-import RateBtn from "../../User/RateBtn";
+import FavoriteBtn from "../../Buttons/FavoriteBtn";
+import WatchlistBtn from "../../Buttons/WatchlistBtn";
+import RateBtn from "../../Buttons/RateBtn";
 
 function HeroButtons({ movieId, mediaType }) {
   const firebase = useContext(FirebaseContext);

@@ -4,25 +4,15 @@ function UserNavbar() {
   return (
     <ul>
       <li>
-        <StyledLink to="favorites" >
-          Favorites
-        </StyledLink>
-      </li> 
+        <StyledLink to="favorites">Favorites</StyledLink>
+      </li>
       <li>
-        <StyledLink to="watchlist" >
-          Watchlist
-        </StyledLink>
-      </li> 
+        <StyledLink to="watchlist">Watchlist</StyledLink>
+      </li>
+      <li>Reviews</li>
       <li>
-        <StyledLink to="reviews" >
-          Reviews
-        </StyledLink>
-      </li> 
-      <li>
-        <StyledLink to="ratings" >
-          Ratings
-        </StyledLink>
-      </li> 
+        <StyledLink to="ratings">Ratings</StyledLink>
+      </li>
     </ul>
   );
 }

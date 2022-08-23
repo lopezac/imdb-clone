@@ -60,10 +60,9 @@ export async function getTrending(time = "day") {
 
 export async function getMoviesData(moviesId) {
   let movies = [];
-  console.log("moviesIds", moviesId);
-  Object.entries(moviesId).map((movie) => {
-    console.log("id and movie", movie[0]);
-    return getMovieData(movie[0]).then((movie) => movies.push(movie));
+  Object.entries(moviesId).map((id) => {
+    return getMovieData(id[0]).then((movie) => movies.push(movie));
   });
+  console.log("movieseattmdb", movies, moviesId);
   return movies;
 }

@@ -18,9 +18,9 @@ function UserProfile() {
   return (
     <Routes>
       <Route path="/" element={<User userData={userData} />}>
-        <Route path="watchlist" element={<UserSection section="watchlist" />} />
-        <Route path="favorites" element={<UserSection section="favorites" />} />
-        <Route path="ratings" element={<UserSection section="ratings" />} />
+        <Route path="watchlist" element={<UserSection />} />
+        <Route path="favorites" element={<UserSection />} />
+        <Route path="ratings" element={<UserSection />} />
       </Route>
     </Routes>
   );

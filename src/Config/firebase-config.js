@@ -7,9 +7,9 @@ import {
   setDoc,
   collection,
   query,
-  where,
   orderBy,
   deleteDoc,
+  onSnapshot,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -97,31 +97,43 @@ export function Firebase() {
   async function getUserInteractions(userId, section, mediaType) {
     const subColRef = collection(db(), `users/${userId}/${mediaType}`);
     const q = query(subColRef, orderBy(section));
-    const querySnap = await getDocs(q);
     let data = {};
+
     // try querySnap.docs instead of forEach
+    const querySnap = await getDocs(q);
     querySnap.forEach((doc) => {
       data[doc.id] = doc.data();
-      console.log(doc.id, "=>", doc.data());
     });
+    console.log("data", data);
     return data;
   }
 
   async function addUserInteraction(movieId, mediaType, section, value) {
     console.log("id, media section value", movieId, mediaType, section, value);
-    const userId = auth().currentUser.uid;
     const movieRef = doc(
       db(),
-      `users/${userId}/${mediaType}`,
+      `users/${getUserId()}/${mediaType}`,
       movieId.toString()
     );
     setDoc(movieRef, { [section]: value }, { merge: true });
   }
 
   async function removeUserInteraction(movieId, section, mediaType) {
-    const userId = auth().currentUser.uid;
-    const movieRef = doc(db(), `users/${userId}/${mediaType}`, movieId);
+    const movieRef = doc(
+      db(),
+      `users/${getUserId()}/${mediaType}`,
+      movieId.toString()
+    );
     await deleteDoc(movieRef);
+  }
+
+  function getUserId() {
+    return auth().currentUser.uid;
+  }
+
+  async function getRating(movieId, mediaType, section) {
+    const ratings = getUserInteractions(getUserId(), section, mediaType);
+    return ratings[movieId];
   }
 
   return {
@@ -139,5 +151,6 @@ export function Firebase() {
     getUserInteractions,
     addUserInteraction,
     removeUserInteraction,
+    getRating,
   };
 }

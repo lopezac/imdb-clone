@@ -1,5 +1,6 @@
 import { array } from "prop-types";
 import { useEffect, useState } from "react";
+import { StyledLink } from "../../../Assets/Styles/Link";
 import { joinUpperCase } from "../../../Utils/format";
 import { pushToObject } from "../../../Utils/various";
 
@@ -15,8 +16,7 @@ function CreatorsList({ crew }) {
   ];
 
   useEffect(() => {
-    const newCreators = getCreators(crew);
-    setCreators(newCreators);
+    setCreators(getCreators(crew));
   }, []);
 
   function getCreators(crew) {
@@ -25,18 +25,25 @@ function CreatorsList({ crew }) {
       const job = member.job.toLowerCase();
       if (!mainRoles.includes(job)) continue;
       pushToObject(tempCreators, member.name, job);
+      tempCreators[member.name]["id"] = member.id;
+      console.log(tempCreators);
     }
+    console.log("tempCreators", tempCreators);
     return tempCreators;
   }
 
-  if (!creators) return null;
+  if (!creators.length) return null;
   return (
     <ul>
-      {Object.entries(creators).map(([name, jobs]) => {
+      {creators.map((creator) => {
+        console.log("creator", Object.entries(creator));
+        const [name, info] = Object.entries(creator);
         return (
           <li key={name}>
-            <p>{name}</p>
-            <p>{joinUpperCase(jobs)}</p>
+            <StyledLink to={`/person/${info.id}`}>
+              <p>{name}</p>
+              <p>{info.jobs}</p>
+            </StyledLink>
           </li>
         );
       })}
