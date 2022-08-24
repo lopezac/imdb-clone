@@ -1,5 +1,8 @@
 import { string, number, object } from "prop-types";
+import { useContext } from "react";
+import { useParams } from "react-router-dom";
 import { StyledLink } from "../../Assets/Styles/Link";
+import { FirebaseContext } from "../../Config/firebase-context";
 
 import { getImg } from "../../Utils/various";
 import FavoriteBtn from "../Buttons/FavoriteBtn";
@@ -16,6 +19,9 @@ function MovieUserCard({
   mediaType,
   userData,
 }) {
+  const firebase = useContext(FirebaseContext);
+  const currentUserId = useParams().userId;
+
   if (!userData) return;
   console.log("userData, ", userData);
   return (
@@ -29,10 +35,18 @@ function MovieUserCard({
         </StyledLink>
         <p>{date}</p>
         <p>{overview}</p>
-        <FavoriteBtn />
-        <WatchlistBtn />
-        <RateBtn rating={userData.ratings} mediaType={mediaType} movieId={id} />
-        <RemoveBtn movieId={id} mediaType={mediaType} />
+        {currentUserId === firebase.getUserId() && (
+          <>
+            <FavoriteBtn />
+            <WatchlistBtn />
+            <RateBtn
+              rating={userData.ratings}
+              mediaType={mediaType}
+              movieId={id}
+            />
+            <RemoveBtn movieId={id} mediaType={mediaType} />
+          </>
+        )}
       </div>
     </li>
   );

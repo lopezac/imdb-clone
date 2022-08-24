@@ -3,16 +3,15 @@ import { useContext, useState } from "react";
 import { FaStar } from "react-icons/fa";
 
 import { FirebaseContext } from "../../Config/firebase-context";
-import { useGetSection } from "../../Utils/various";
+import { useGetCurUserId } from "../../Utils/various";
 
 function RateBtn({ rating = 1, movieId, mediaType }) {
   const [input, setInput] = useState(rating);
   const [showInput, setShowInput] = useState(false);
   const firebase = useContext(FirebaseContext);
-  const section = useGetSection();
 
   function handleClick() {
-    firebase.addUserInteraction(movieId, mediaType, section, input);
+    firebase.addUserInteraction(movieId, mediaType, "ratings", input);
   }
 
   function toggleInput() {
@@ -24,6 +23,7 @@ function RateBtn({ rating = 1, movieId, mediaType }) {
   }
 
   function rateBtnClicked() {
+    if (!firebase.auth().currentUser) return;
     toggleInput();
     handleClick("ratings", input);
   }
@@ -47,7 +47,7 @@ function RateBtn({ rating = 1, movieId, mediaType }) {
 }
 
 RateBtn.propTypes = {
-  rating: number,
+  rating: string,
   movieId: number,
   mediaType: string,
 };

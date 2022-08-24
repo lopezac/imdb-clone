@@ -9,7 +9,6 @@ import {
   query,
   orderBy,
   deleteDoc,
-  onSnapshot,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -63,9 +62,10 @@ export function Firebase() {
     return auth().currentUser.displayName;
   }
 
-  // function isUserSignedIn() {
-  //   return !!auth().currentUser;
-  // }
+  function isUserSignedIn() {
+    console.log("curent", !auth().currentUser, auth().currentUser);
+    return !!auth().currentUser;
+  }
 
   async function isUserInDb() {
     const docRef = doc(db(), "users", auth().currentUser.uid);
@@ -128,7 +128,7 @@ export function Firebase() {
   }
 
   function getUserId() {
-    return auth().currentUser.uid;
+    if (auth().currentUser) return auth().currentUser.uid;
   }
 
   async function getRating(movieId, mediaType, section) {
@@ -143,7 +143,7 @@ export function Firebase() {
     signOutUser,
     getProfileImgUrl,
     getUserName,
-    // isUserSignedIn,
+    isUserSignedIn,
     isUserInDb,
     addUserToDb,
     getUserData,
@@ -152,5 +152,6 @@ export function Firebase() {
     addUserInteraction,
     removeUserInteraction,
     getRating,
+    getUserId,
   };
 }

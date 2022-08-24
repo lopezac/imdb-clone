@@ -10,6 +10,7 @@ function HeroButtons({ movieId, mediaType }) {
   const firebase = useContext(FirebaseContext);
 
   async function handleClick(section, value = true) {
+    if (!firebase.auth().currentUser) return;
     const userId = firebase.auth().currentUser.uid;
     const interactions = await firebase.getUserInteractions(
       userId,
@@ -24,7 +25,11 @@ function HeroButtons({ movieId, mediaType }) {
     <div>
       <FavoriteBtn handleClick={handleClick} />
       <WatchlistBtn handleClick={handleClick} />
-      <RateBtn handleClick={handleClick} />
+      <RateBtn
+        handleClick={handleClick}
+        movieId={movieId}
+        mediaType={mediaType}
+      />
       <button>Play trailer</button>
     </div>
   );

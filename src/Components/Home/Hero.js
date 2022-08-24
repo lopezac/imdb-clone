@@ -1,4 +1,4 @@
-import SearchBar from "../TopNavbar/SearchBar";
+import SearchBar from "../Input/SearchBar";
 
 function Hero() {
   return (

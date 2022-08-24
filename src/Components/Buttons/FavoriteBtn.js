@@ -3,9 +3,9 @@ import { FaHeart } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 function FavoriteBtn({ handleClick }) {
-  const [activated, setActivated] = useState(false);
+  // const [activated, setActivated] = useState(false);
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
   return (
     <button onClick={() => handleClick("favorites")}>

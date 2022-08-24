@@ -2,7 +2,6 @@ import { array } from "prop-types";
 import { useEffect, useState } from "react";
 import { StyledLink } from "../../../Assets/Styles/Link";
 import { joinUpperCase } from "../../../Utils/format";
-import { pushToObject } from "../../../Utils/various";
 
 function CreatorsList({ crew }) {
   const [creators, setCreators] = useState({});
@@ -23,26 +22,28 @@ function CreatorsList({ crew }) {
     let tempCreators = {};
     for (const member of crew) {
       const job = member.job.toLowerCase();
-      if (!mainRoles.includes(job)) continue;
-      pushToObject(tempCreators, member.name, job);
-      tempCreators[member.name]["id"] = member.id;
-      console.log(tempCreators);
+      if (!checkValidRole(job)) continue;
+
+      const name = member.name;
+      const creatorExists = name in tempCreators;
+      if (creatorExists) tempCreators[name]["jobs"].push(job);
+      else tempCreators[name] = { jobs: [job], id: member.id };
     }
-    console.log("tempCreators", tempCreators);
     return tempCreators;
   }
 
-  if (!creators.length) return null;
+  function checkValidRole(job) {
+    return mainRoles.includes(job);
+  }
+
   return (
     <ul>
-      {creators.map((creator) => {
-        console.log("creator", Object.entries(creator));
-        const [name, info] = Object.entries(creator);
+      {Object.entries(creators).map((creator) => {
         return (
-          <li key={name}>
-            <StyledLink to={`/person/${info.id}`}>
-              <p>{name}</p>
-              <p>{info.jobs}</p>
+          <li key={creator[0]}>
+            <StyledLink to={`/person/${creator[1].id}`}>
+              <p>{creator[0]}</p>
+              <p>{joinUpperCase(creator[1].jobs)}</p>
             </StyledLink>
           </li>
         );

@@ -1,14 +1,15 @@
 import { number, string } from "prop-types";
 import { useContext } from "react";
-import { useParams } from "react-router-dom";
 
 import { FirebaseContext } from "../../Config/firebase-context";
+import { useGetSection } from "../../Utils/various";
 
 function RemoveBtn({ movieId, mediaType }) {
-  const section = useParams()["*"];
+  const section = useGetSection();
   const firebase = useContext(FirebaseContext);
 
   async function handleClick() {
+    if (!firebase.auth().currentUser) return;
     await firebase.removeUserInteraction(movieId, section, mediaType);
   }
 

@@ -2,29 +2,35 @@ import { useContext, useState, useEffect } from "react";
 
 import { FirebaseContext } from "../../Config/firebase-context";
 import noImage from "../../Assets/Images/no-user.jpg";
-import { StyledLink } from "../../Assets/Styles/Link";
+import SettingsMenu from "./SettingsMenu";
 
 function UserInfo() {
   const firebase = useContext(FirebaseContext);
-  console.log("currentUser", firebase.auth().currentUser);
   const [currentUser, setCurrentUser] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
-      user ? setCurrentUser(user) : setCurrentUser(null);
+      setCurrentUser(user ? user : null);
     });
   }, []);
+
+  function toggleMenu() {
+    setShowMenu(!showMenu);
+  }
 
   return (
     <div>
       {currentUser ? (
-        <StyledLink to={`/user/${currentUser.uid}`}>
+        <>
           <img
             src={firebase.getProfileImgUrl()}
             alt={firebase.getUserName()}
             width="50"
+            onClick={toggleMenu}
           />
-        </StyledLink>
+          {showMenu && <SettingsMenu currentUser={currentUser} />}
+        </>
       ) : (
         <img src={noImage} alt="no-user" width="50" />
       )}

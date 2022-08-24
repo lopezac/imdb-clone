@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { matchRoutes, useLocation, useParams } from "react-router-dom";
 
 import noImage from "../Assets/Images/no-image.png";
 
@@ -32,4 +32,8 @@ export function getTitle(credit) {
 
 export function useGetSection() {
   return useParams()["*"];
+}
+
+export function useGetCurUserId() {
+  return useParams().userId;
 }
