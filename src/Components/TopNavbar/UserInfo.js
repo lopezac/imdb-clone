@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react";
 
 import { FirebaseContext } from "../../Config/firebase-context";
 import noImage from "../../Assets/Images/no-user.jpg";
-import SettingsMenu from "./SettingsMenu";
+import SettingsMenu from "./Menus/SettingsMenu";
 
 function UserInfo() {
   const firebase = useContext(FirebaseContext);
