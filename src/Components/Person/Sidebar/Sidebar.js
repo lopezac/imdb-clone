@@ -1,7 +1,7 @@
 import { object } from "prop-types";
 
-import { SidebarDiv } from "../../../Assets/Styles/PersonDivs";
 import PosterCard from "../../Card/PosterCard";
+import { SidebarDiv } from "../PersonDivs";
 import PersonalInfo from "./PersonalInfo";
 
 function Sidebar({ data }) {

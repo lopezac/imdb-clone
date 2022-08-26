@@ -1,6 +1,5 @@
 import { array, func } from "prop-types";
-
-import { SidebarDiv } from "../../../Assets/Styles/SearchDivs";
+import { SidebarDiv } from "../SearchDivs";
 
 function SettingsPanel({ data, updateSection }) {
   const options = [

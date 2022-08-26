@@ -2,15 +2,15 @@ import { object } from "prop-types";
 
 import CreatorsList from "./CreatorsList";
 import { getImg, isAMovieOrTv } from "../../../Utils/various";
-import { HeroDiv } from "../../../Assets/Styles/MovieDivs";
 import HeroButtons from "./HeroButtons";
 import Overview from "./Overview";
 import Title from "./Title";
 import MovieFacts from "./MovieFacts";
 import PosterCard from "../../Card/PosterCard";
+import { HeroDiv } from "../../Home/Home";
 
 function Hero({ data }) {
-        console.log(data);
+  console.log(data);
   return (
     <HeroDiv>
       <PosterCard

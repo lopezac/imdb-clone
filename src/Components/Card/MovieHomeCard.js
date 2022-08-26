@@ -1,17 +1,19 @@
 import { string, number } from "prop-types";
-import { StyledLink } from "../../Assets/Styles/Link";
 
-import { formatDate } from "../../Utils/format";
+import { MovieImg } from "../../Assets/Styles/Image";
+import { StyledLink } from "../../Assets/Styles/Link";
+import { GrayPara, MovieCardTitle } from "../../Assets/Styles/Para";
+import { formatDateShort } from "../../Utils/format";
 import { getImg } from "../../Utils/various";
 
 function MovieHomeCard({ img, title, date, section, id }) {
   return (
     <li>
       <StyledLink to={`/${section}/${id}`}>
-        <img src={getImg(img)} alt={title} width="150" />
+        <MovieImg src={getImg(img)} alt={title} width="150" />
         <div>
-          <h3>{title}</h3>
-          <p>{formatDate(date)}</p>
+          <MovieCardTitle>{title}</MovieCardTitle>
+          <GrayPara>{formatDateShort(date)}</GrayPara>
         </div>
       </StyledLink>
     </li>

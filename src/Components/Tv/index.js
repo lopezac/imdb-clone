@@ -3,7 +3,7 @@ import { object } from "prop-types";
 import Hero from "./Hero/Hero";
 import Sidebar from "./Sidebar/Sidebar";
 import Main from "./Main/Main";
-import { MovieDiv } from "../../Assets/Styles/MovieDivs";
+import { MovieDiv } from "../Movie/MovieDivs";
 
 function TvPage({ data }) {
   if (!data) return;

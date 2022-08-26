@@ -1,10 +1,10 @@
 import { object } from "prop-types";
 
-import { MainDiv } from "../../../Assets/Styles/MovieDivs";
 import Media from "../../Movie/Main/Media";
 import Recommendations from "../../Movie/Main/Recommendations";
 import Reviews from "../../Movie/Main/Reviews";
 import TopBilledCast from "../../Movie/Main/TopBilledCast";
+import { MainDiv } from "../../Movie/MovieDivs";
 import LatestSeason from "./LatestSeason";
 
 function Main({ data }) {

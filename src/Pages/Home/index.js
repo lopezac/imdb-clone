@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Hero from "../../Components/Home/Hero";
+import { HomeDiv } from "../../Components/Home/Home";
 import Popular from "../../Components/Home/Popular";
 import Trending from "../../Components/Home/Trending";
 import { getPopular, getTrending } from "../../Config/tmdb-api";
@@ -17,12 +18,12 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <HomeDiv>
       <Hero />
       <Popular section="movie" title="Movies" movies={popularMovies} />
       <Popular section="tv" title="TV Shows" movies={popularTv} />
       <Trending movies={trending} />
-    </div>
+    </HomeDiv>
   );
 }
 

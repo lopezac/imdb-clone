@@ -1,9 +1,9 @@
 import { object } from "prop-types";
 
-import { SidebarDiv } from "../../../Assets/Styles/MovieDivs";
 import SidebarFacts from "./SidebarFacts";
 import SocialMedia from "../../Movie/Sidebar/SocialMedia";
 import Keywords from "../../Movie/Sidebar/Keywords";
+import { SidebarDiv } from "../../Movie/MovieDivs";
 
 function Sidebar({ data }) {
   return (

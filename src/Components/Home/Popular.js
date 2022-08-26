@@ -1,14 +1,18 @@
 import { string, array } from "prop-types";
+import { SmallerSubTitle } from "../../Assets/Styles/Para";
 
 import { Scroller } from "../../Assets/Styles/Scroller";
 import { getDate, getTitle } from "../../Utils/various";
 import MovieHomeCard from "../Card/MovieHomeCard";
+import { ColumnHeader, HomeSection } from "./Home";
 
 function Popular({ section, title, movies }) {
   if (!movies) return;
   return (
-    <div>
-      <h2>Popular {title}</h2>
+    <HomeSection>
+      <ColumnHeader>
+        <SmallerSubTitle>Popular {title}</SmallerSubTitle>
+      </ColumnHeader>
       <Scroller>
         {movies.map((movie) => {
           return (
@@ -23,7 +27,7 @@ function Popular({ section, title, movies }) {
           );
         })}
       </Scroller>
-    </div>
+    </HomeSection>
   );
 }
 

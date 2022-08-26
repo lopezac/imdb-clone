@@ -18,7 +18,7 @@ export const MenuList = styled(List)(
 
     li:hover {
       background-color: ${theme.darkBlue};
-      color: ${theme.white};
+      color: white;
     }
   `
 );

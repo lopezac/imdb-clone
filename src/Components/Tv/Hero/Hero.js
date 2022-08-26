@@ -5,8 +5,8 @@ import { getImg } from "../../../Utils/various";
 import Title from "./Title";
 import HeroButtons from "../../Movie/Hero/HeroButtons";
 import Overview from "../../Movie/Hero/Overview";
-import { HeroDiv } from "../../../Assets/Styles/MovieDivs";
 import CreatorsList from "./CreatorsList";
+import { HeroDiv } from "../../Movie/MovieDivs";
 
 function Hero({ data }) {
   return (

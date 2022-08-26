@@ -1,9 +1,9 @@
 import { array, string } from "prop-types";
 
-import { MainDiv } from "../../../Assets/Styles/SearchDivs";
 import { getDate, getTitle } from "../../../Utils/various";
 import MovieSearchCard from "../../Card/MovieSearchCard";
 import PersonSearchCard from "../../Card/PersonSearchCard";
+import { MainDiv } from "../SearchDivs";
 
 function SearchPage({ data, section }) {
   if (!data) return;

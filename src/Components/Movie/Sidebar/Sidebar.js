@@ -3,7 +3,7 @@ import { object } from "prop-types";
 import SidebarFacts from "./SidebarFacts";
 import Keywords from "./Keywords";
 import SocialMedia from "./SocialMedia";
-import { SidebarDiv } from "../../../Assets/Styles/MovieDivs";
+import { SidebarDiv } from "../MovieDivs";
 
 function Sidebar({ data }) {
   return (

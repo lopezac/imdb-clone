@@ -3,14 +3,19 @@ import { array } from "prop-types";
 import { Scroller } from "../../Assets/Styles/Scroller";
 import { getDate, getTitle } from "../../Utils/various";
 import MovieHomeCard from "../Card/MovieHomeCard";
+import { ColumnHeader, HomeSection } from "./Home";
 
 function Trending({ movies }) {
   if (!movies) return;
   return (
-    <div>
-      <h2>Trending</h2>
-      <button>Today</button>
-      <button>This Week</button>
+    <HomeSection>
+      <ColumnHeader>
+        <h2>Trending</h2>
+        <div>
+          <button>Today</button>
+          <button>This Week</button>
+        </div>
+      </ColumnHeader>
       <Scroller>
         {movies.map((movie) => {
           return (
@@ -25,7 +30,7 @@ function Trending({ movies }) {
           );
         })}
       </Scroller>
-    </div>
+    </HomeSection>
   );
 }
 

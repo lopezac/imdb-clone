@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { SearchBtn } from "../../Assets/Styles/Button";
+import { SearchForm, SearchInput } from "../../Assets/Styles/Input";
 
 function SearchBar() {
   const [input, setInput] = useState("");
@@ -15,15 +18,16 @@ function SearchBar() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <SearchForm onSubmit={handleSubmit}>
+      <FaSearch />
+      <SearchInput
         type="text"
         name="searchQuery"
         onChange={handleChange}
         placeholder="Search for a movie, tv show, person...."
       />
-      <button type="submit">Search</button>
-    </form>
+      <SearchBtn type="submit">Search</SearchBtn>
+    </SearchForm>
   );
 }
 

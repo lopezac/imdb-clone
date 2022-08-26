@@ -5,7 +5,7 @@ import Reviews from "./Reviews";
 import Media from "./Media";
 import Collection from "./Collection";
 import Recommendations from "./Recommendations";
-import { MainDiv } from "../../../Assets/Styles/MovieDivs";
+import { MainDiv } from "../MovieDivs";
 
 function Main({ data }) {
   return (

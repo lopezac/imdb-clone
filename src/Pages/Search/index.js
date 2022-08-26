@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { getSearch } from "../../Config/tmdb-api";
 import SearchPage from "../../Components/Search/Main";
 import SettingsPanel from "../../Components/Search/SettingsPanel";
-import { SearchDiv } from "../../Assets/Styles/SearchDivs";
+import { SearchDiv } from "../../Components/Search/SearchDivs";
 
 function Search() {
   const query = useParams().query;

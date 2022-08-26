@@ -9,4 +9,5 @@ export const Scroller = styled.ol`
     "" /* margin-left: -10px;
   margin-top: -10px; */
   }
+  column-gap: 20px;
 `;

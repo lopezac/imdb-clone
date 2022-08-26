@@ -13,7 +13,7 @@ export const SpaceBetweenNav = styled(Navbar)(
     justify-content: space-between;
     padding: 9px 30px;
     background-color: ${theme.darkBlue};
-    color: ${theme.white};
+    color: white;
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;

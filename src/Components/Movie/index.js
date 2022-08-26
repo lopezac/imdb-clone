@@ -1,7 +1,7 @@
 import Hero from "./Hero/Hero";
 import Sidebar from "./Sidebar/Sidebar";
 import Main from "./Main/Main";
-import { MovieDiv } from "../../Assets/Styles/MovieDivs";
+import { MovieDiv } from "./MovieDivs";
 
 function MoviePage({ data }) {
   if (!data) return;

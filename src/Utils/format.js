@@ -20,6 +20,11 @@ export function formatDate(dateStr) {
   return format(new Date(date[0], date[1] - 1, date[2]), "dd/M/yyyy");
 }
 
+export function formatDateShort(dateString) {
+  const date = dateString.split("-");
+  return format(new Date(date[0], date[1] - 1, date[2]), "MMM dd, y");
+}
+
 export function formatArray(array) {
   return array.map((inner) => inner.name).join(", ");
 }
