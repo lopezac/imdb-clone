@@ -1,15 +1,37 @@
 import styled from "styled-components";
 
-export const SearchBtn = styled.button(
+const Btn = styled.button`
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: none;
+`;
+
+export const SearchBtn = styled(Btn)(
   ({ theme }) => `
     position: absolute;
     right: 0;
     top: 0px;
-    border: none;
-    padding: 12px 25px;
+    padding: 13px 25px;
     color: white;
     background: linear-gradient(${theme.lightGreen}, ${theme.lightBlue});
-    font-weight: bold;
-    font-size: 1rem;
+  `
+);
+
+export const RoundedBtn = styled(Btn)(
+  ({theme}) => `
+    border-radius: 30px;
+    background-color: ${theme.darkBlue};
+    padding: 10px 15px;
+    color: ${theme.lightGreen};
+  `
+);
+
+export const BigBtn = styled(Btn)(
+  ({theme}) => `
+    background-color: white;
+    color: ${theme.lightBlue};
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
   `
 );

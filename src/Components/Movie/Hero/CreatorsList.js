@@ -1,7 +1,9 @@
 import { array } from "prop-types";
 import { useEffect, useState } from "react";
+
 import { StyledLink } from "../../../Assets/Styles/Link";
 import { joinUpperCase } from "../../../Utils/format";
+import { WrapList } from "../../../Assets/Styles/List";
 
 function CreatorsList({ crew }) {
   const [creators, setCreators] = useState({});
@@ -37,7 +39,7 @@ function CreatorsList({ crew }) {
   }
 
   return (
-    <ul>
+    <WrapList>
       {Object.entries(creators).map((creator) => {
         return (
           <li key={creator[0]}>
@@ -48,7 +50,7 @@ function CreatorsList({ crew }) {
           </li>
         );
       })}
-    </ul>
+    </WrapList>
   );
 }
 

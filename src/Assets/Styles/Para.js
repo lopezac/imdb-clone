@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Para = styled.p`
+export const Para = styled.p`
   margin: 0;
 `;
 
@@ -49,3 +49,10 @@ export const GrayPara = styled(Para)(
     font-size: 0.9rem;
   `
 );
+
+export const ListTitle = styled.h3`
+  font-weight: bolder;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+`;

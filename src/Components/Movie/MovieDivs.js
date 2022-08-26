@@ -7,10 +7,13 @@ export const MovieDiv = styled.div`
     "main sidebar";
   grid-template-columns: 1fr auto;
   grid-template-rows: auto 1fr;
+  width: 100vw;
 `;
 
 export const HeroDiv = styled.div`
   grid-area: hero;
+  display: flex;
+  padding: 20px;
 `;
 
 export const MainDiv = styled.div`
@@ -19,4 +22,8 @@ export const MainDiv = styled.div`
 
 export const SidebarDiv = styled.div`
   grid-area: sidebar;
+`;
+
+export const HeroInfoDiv = styled.div`
+  // disp
 `;

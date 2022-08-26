@@ -7,7 +7,7 @@ import Overview from "./Overview";
 import Title from "./Title";
 import MovieFacts from "./MovieFacts";
 import PosterCard from "../../Card/PosterCard";
-import { HeroDiv } from "../../Home/Home";
+import { HeroDiv, HeroInfoDiv } from "../MovieDivs";
 
 function Hero({ data }) {
   console.log(data);
@@ -18,7 +18,7 @@ function Hero({ data }) {
         name={data.title}
         width="300"
       />
-      <div>
+      <HeroInfoDiv>
         <Title title={data.title} release_date={data.release_date} />
         <MovieFacts
           release_date={data.release_date}
@@ -28,7 +28,7 @@ function Hero({ data }) {
         <HeroButtons movieId={data.id} mediaType={isAMovieOrTv(data)} />
         <Overview tagline={data.tagline} overview={data.overview} />
         <CreatorsList crew={data.credits.crew} />
-      </div>
+      </HeroInfoDiv>
     </HeroDiv>
   );
 }
