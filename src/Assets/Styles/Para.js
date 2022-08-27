@@ -18,6 +18,10 @@ export const SmallBlack = styled(Para)`
   margin: 5px 0;
 `;
 
+export const SmallPara = styled(Para)`
+  font-size: 0.8rem;
+`;
+
 export const SmallWhitePara = styled(Para)`
   color: white;
   font-weight: 100;
@@ -45,7 +49,7 @@ export const SmallerSubTitle = styled(SubTitle)`
 `;
 
 export const SmallestSubTitle = styled(SubTitle)`
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 `;
 
 export const MovieCardTitle = styled.h2`
@@ -83,6 +87,10 @@ export const ListTitle = styled.h3`
 
 export const StrongPara = styled(Para)`
   font-weight: 700;
+`;
+
+export const StrongMediumPara = styled(StrongPara)`
+  font-size: 1rem;
 `;
 
 export const StrongSmallPara = styled(StrongPara)`

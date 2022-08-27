@@ -11,4 +11,5 @@ export const appTheme = {
   yellow: "#eec407",
   lightStone: "#d7d7d7",
   stone: "#e3e3e3",
+  violet: "#4a3574",
 };

@@ -25,12 +25,12 @@ export const HomeDiv = styled.div`
 `;
 
 export const ColumnHeader = styled.header`
-  padding-left: 38px;
+  // padding-left: 38px;
   display: flex;
   align-items: center;
   column-gap: 20px;
 `;
 
 export const HomeSection = styled.div`
-  padding-top: 30px;
+  padding: 30px 0 0 38px;
 `;

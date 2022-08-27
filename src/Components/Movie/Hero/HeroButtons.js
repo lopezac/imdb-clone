@@ -8,7 +8,7 @@ import FavoriteBtn from "../../Buttons/FavoriteBtn";
 import WatchlistBtn from "../../Buttons/WatchlistBtn";
 import RateBtn from "../../Buttons/RateBtn";
 import { ButtonsDiv } from "../MovieDivs";
-import { CircleBlueBtn, TrailerBtn } from "../../../Assets/Styles/Button";
+import { CircleBlueBtn, TransparentWhiteBtn } from "../../../Assets/Styles/Button";
 
 function HeroButtons({ movieId, mediaType }) {
   const firebase = useContext(FirebaseContext);
@@ -37,9 +37,9 @@ function HeroButtons({ movieId, mediaType }) {
         movieId={movieId}
         mediaType={mediaType}
       />
-      <TrailerBtn>
+      <TransparentWhiteBtn>
         <VscTriangleRight /> Play trailer
-      </TrailerBtn>
+      </TransparentWhiteBtn>
     </ButtonsDiv>
   );
 }

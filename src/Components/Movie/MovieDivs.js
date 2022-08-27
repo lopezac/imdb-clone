@@ -48,10 +48,11 @@ export const SidebarDiv = styled.div`
 
 export const SectionDiv = styled.div(
   ({ theme }) => `
-    border-bottom: 1px solid ${theme.lightStone};
+    border-bottom: 10px solid ${theme.lightStone};
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 30px;
+    padding: 30px 0;
 
     :last-child {
       border-bottom: none;
@@ -62,6 +63,22 @@ export const SectionDiv = styled.div(
 export const HeroInfoDiv = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const CollectionDiv = styled(SectionDiv)`
+  align-items: center;
+  justify-content: center;
+  row-gap: 20px;
+  background: linear-gradient(
+      ${(props) => props.theme.darkBlue}CC,
+      ${(props) => props.theme.darkBlue}99
+    ),
+    url(${(props) => props.img});
+  background-size: cover;
+  background-position: 80% 20%;
+  color: white;
+  height: 258px;
+  width: 100%;
 `;
 
 export const ButtonsDiv = styled.div`

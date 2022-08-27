@@ -1,9 +1,11 @@
 import { array } from "prop-types";
+import { VscTriangleRight } from "react-icons/vsc";
 
 import ActorCard from "../../Card/ActorCard";
 import { useIsAMovie } from "../../../Utils/various";
 import { Scroller } from "../../../Assets/Styles/List";
 import { StrongPara, SmallestSubTitle } from "../../../Assets/Styles/Para";
+import { TransparentBlackBtn } from "../../../Assets/Styles/Button";
 import { SectionDiv } from "../MovieDivs";
 
 function TopBilledCast({ cast }) {
@@ -30,7 +32,9 @@ function TopBilledCast({ cast }) {
             />
           );
         })}
-        <li>View more</li>
+        <TransparentBlackBtn>
+          View more <VscTriangleRight />
+        </TransparentBlackBtn>
       </Scroller>
       <StrongPara>Full Cast & Crew</StrongPara>
     </SectionDiv>

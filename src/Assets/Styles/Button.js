@@ -37,12 +37,33 @@ export const BigBtn = styled(Btn)(
   `
 );
 
-export const TrailerBtn = styled(Btn)`
+export const VioletBtn = styled(Btn)`
+  background-color: ${(props) => props.theme.violet};
   color: white;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+`;
+
+export const TransparentBtnIcon = styled(Btn)`
   background-color: rgba(255, 255, 255, 0);
   display: flex;
   align-items: center;
   font-size: 1rem;
+`;
+
+export const TransparentBlackBtn = styled(TransparentBtnIcon)`
+  color: black;
+  padding-right: 15px;
+
+  svg {
+    font-size: 1.5rem;
+  }
+`;
+
+export const TransparentWhiteBtn = styled(TransparentBtnIcon)`
+  color: white;
 `;
 
 export const CircleBlueBtn = styled(Btn)(
