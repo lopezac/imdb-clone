@@ -7,4 +7,8 @@ export const appTheme = {
   mediumGray: "#acacac",
   lightGreen: "#24d6ab",
   lightBlue: "#02b5e3",
+  rose: "#ef47b6",
+  yellow: "#eec407",
+  lightStone: "#d7d7d7",
+  stone: "#e3e3e3",
 };

@@ -1,17 +1,19 @@
 import { string, number } from "prop-types";
 
+import { PersonCard } from "../../Assets/Styles/Card";
+import { MovieImg } from "../../Assets/Styles/Image";
 import { StyledLink } from "../../Assets/Styles/Link";
 import { getImg } from "../../Utils/various";
 
 function ActorCard({ name, character, img, id }) {
   return (
-    <li>
+    <PersonCard>
       <StyledLink to={`/person/${id}`}>
-        <img src={getImg(img)} width="138" alt={name} />
+        <MovieImg src={getImg(img)} width="138" alt={name} />
         <p>{name}</p>
         <p>{character}</p>
       </StyledLink>
-    </li>
+    </PersonCard>
   );
 }
 

@@ -1,18 +1,19 @@
 import { string } from "prop-types";
 
+import { GrayThinSpan, MovieTitle } from "../../../Assets/Styles/Para";
 import { getYear } from "../../../Utils/format";
 
-function Title({ title, release_date }) {
+function TitleHeader({ title, release_date }) {
   return (
-    <h1>
-      {title} <span>({getYear(release_date)})</span>
-    </h1>
+    <MovieTitle>
+      {title} <GrayThinSpan>({getYear(release_date)})</GrayThinSpan>
+    </MovieTitle>
   );
 }
 
-Title.propTypes = {
+TitleHeader.propTypes = {
   title: string,
   release_date: string,
 };
 
-export default Title;
+export default TitleHeader;

@@ -1,10 +1,10 @@
 import { array } from "prop-types";
 
-import { Scroller } from "../../Assets/Styles/Scroller";
 import { getDate, getTitle } from "../../Utils/various";
 import MovieHomeCard from "../Card/MovieHomeCard";
 import { ColumnHeader, HomeSection } from "./Home";
 import { RoundedBtn } from "../../Assets/Styles/Button";
+import { Scroller } from "../../Assets/Styles/List";
 
 function Trending({ movies }) {
   if (!movies) return;

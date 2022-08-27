@@ -1,11 +1,12 @@
 import { object } from "prop-types";
 
 import { getImg } from "../../../Utils/various";
+import { SectionDiv } from "../MovieDivs";
 
 function Collection({ data }) {
   if (!data) return null;
   return (
-    <div>
+    <SectionDiv>
       <img
         src={getImg(data.backdrop_path)}
         alt={data.name}
@@ -14,7 +15,7 @@ function Collection({ data }) {
       />
       <h2>Part of the {data.name}</h2>
       <button>View the collection</button>
-    </div>
+    </SectionDiv>
   );
 }
 

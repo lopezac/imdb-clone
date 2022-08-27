@@ -1,4 +1,4 @@
-import { Scroller } from "../../../Assets/Styles/Scroller";
+import { Scroller } from "../../../Assets/Styles/List";
 import KnownMovieCard from "../../Card/KnownMovieCard";
 
 function KnownFor({ movies }) {

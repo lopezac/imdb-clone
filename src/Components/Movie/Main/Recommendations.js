@@ -1,7 +1,8 @@
 import { array } from "prop-types";
 
-import { Scroller } from "../../../Assets/Styles/Scroller";
+import { Scroller } from "../../../Assets/Styles/List";
 import RecommendCard from "../../Card/RecommendCard";
+import { SectionDiv } from "../MovieDivs";
 
 function Recommendations({ data }) {
   if (!data || !data.length) return;
@@ -11,7 +12,7 @@ function Recommendations({ data }) {
   }
 
   return (
-    <div>
+    <SectionDiv>
       <h2>Recommendations</h2>
       <Scroller>
         {data.map((movie) => {
@@ -25,7 +26,7 @@ function Recommendations({ data }) {
           );
         })}
       </Scroller>
-    </div>
+    </SectionDiv>
   );
 }
 

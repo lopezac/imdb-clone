@@ -1,8 +1,10 @@
 import { array } from "prop-types";
 
 import ActorCard from "../../Card/ActorCard";
-import { Scroller } from "../../../Assets/Styles/Scroller";
 import { useIsAMovie } from "../../../Utils/various";
+import { Scroller } from "../../../Assets/Styles/List";
+import { StrongPara, SmallestSubTitle } from "../../../Assets/Styles/Para";
+import { SectionDiv } from "../MovieDivs";
 
 function TopBilledCast({ cast }) {
   const topBilledCast = get(cast);
@@ -12,8 +14,10 @@ function TopBilledCast({ cast }) {
   }
 
   return (
-    <div>
-      <h2>{useIsAMovie() ? "Top Billed" : "Series"} Cast</h2>
+    <SectionDiv>
+      <SmallestSubTitle>
+        {useIsAMovie() ? "Top Billed" : "Series"} Cast
+      </SmallestSubTitle>
       <Scroller>
         {topBilledCast.map((actor) => {
           return (
@@ -28,8 +32,8 @@ function TopBilledCast({ cast }) {
         })}
         <li>View more</li>
       </Scroller>
-      <h3>Full Cast & Crew</h3>
-    </div>
+      <StrongPara>Full Cast & Crew</StrongPara>
+    </SectionDiv>
   );
 }
 

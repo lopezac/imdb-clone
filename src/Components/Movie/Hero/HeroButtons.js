@@ -1,10 +1,14 @@
 import { useContext } from "react";
 import { number, string } from "prop-types";
+import { VscTriangleRight } from "react-icons/vsc";
+import { MdSettings } from "react-icons/md";
 
 import { FirebaseContext } from "../../../Config/firebase-context";
 import FavoriteBtn from "../../Buttons/FavoriteBtn";
 import WatchlistBtn from "../../Buttons/WatchlistBtn";
 import RateBtn from "../../Buttons/RateBtn";
+import { ButtonsDiv } from "../MovieDivs";
+import { CircleBlueBtn, TrailerBtn } from "../../../Assets/Styles/Button";
 
 function HeroButtons({ movieId, mediaType }) {
   const firebase = useContext(FirebaseContext);
@@ -22,7 +26,10 @@ function HeroButtons({ movieId, mediaType }) {
   }
 
   return (
-    <div>
+    <ButtonsDiv>
+      <CircleBlueBtn>
+        <MdSettings />
+      </CircleBlueBtn>
       <FavoriteBtn handleClick={handleClick} />
       <WatchlistBtn handleClick={handleClick} />
       <RateBtn
@@ -30,8 +37,10 @@ function HeroButtons({ movieId, mediaType }) {
         movieId={movieId}
         mediaType={mediaType}
       />
-      <button>Play trailer</button>
-    </div>
+      <TrailerBtn>
+        <VscTriangleRight /> Play trailer
+      </TrailerBtn>
+    </ButtonsDiv>
   );
 }
 

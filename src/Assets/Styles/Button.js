@@ -4,6 +4,7 @@ const Btn = styled.button`
   font-weight: bold;
   font-size: 0.9rem;
   border: none;
+  cursor: pointer;
 `;
 
 export const SearchBtn = styled(Btn)(
@@ -18,7 +19,7 @@ export const SearchBtn = styled(Btn)(
 );
 
 export const RoundedBtn = styled(Btn)(
-  ({theme}) => `
+  ({ theme }) => `
     border-radius: 30px;
     background-color: ${theme.darkBlue};
     padding: 10px 15px;
@@ -27,11 +28,41 @@ export const RoundedBtn = styled(Btn)(
 );
 
 export const BigBtn = styled(Btn)(
-  ({theme}) => `
+  ({ theme }) => `
     background-color: white;
     color: ${theme.lightBlue};
     padding: 10px;
     border-radius: 5px;
     font-size: 1.1rem;
+  `
+);
+
+export const TrailerBtn = styled(Btn)`
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+`;
+
+export const CircleBlueBtn = styled(Btn)(
+  ({ theme }) => `
+    background-color: ${theme.darkBlue};
+    border-radius: 30px;
+    color: white;
+    padding: 15px;
+    font-size: 0.8rem;
+  `
+);
+
+export const CircleRoseBtn = styled(CircleBlueBtn)(
+  ({ theme }) => `
+    color: ${theme.rose};
+  `
+);
+
+export const CircleYellowBtn = styled(CircleBlueBtn)(
+  ({ theme }) => `
+    color: ${theme.yellow};
   `
 );

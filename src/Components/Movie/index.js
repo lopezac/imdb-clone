@@ -1,7 +1,7 @@
 import Hero from "./Hero/Hero";
 import Sidebar from "./Sidebar/Sidebar";
 import Main from "./Main/Main";
-import { MovieDiv } from "./MovieDivs";
+import { MainContentWrapper, MovieDiv } from "./MovieDivs";
 
 function MoviePage({ data }) {
   if (!data) return;
@@ -9,8 +9,10 @@ function MoviePage({ data }) {
   return (
     <MovieDiv>
       <Hero data={data} />
-      <Main data={data} />
-      <Sidebar data={data} />
+      <MainContentWrapper>
+        <Main data={data} />
+        <Sidebar data={data} />
+      </MainContentWrapper>
     </MovieDiv>
   );
 }

@@ -7,4 +7,5 @@ export const MovieImg = styled.img`
 export const PosterImg = styled.img`
   width: 300px;
   height: 450px;
+  border-radius: 8px;
 `;

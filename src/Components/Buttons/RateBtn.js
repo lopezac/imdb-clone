@@ -2,8 +2,8 @@ import { number, string } from "prop-types";
 import { useContext, useState } from "react";
 import { FaStar } from "react-icons/fa";
 
+import { CircleYellowBtn } from "../../Assets/Styles/Button";
 import { FirebaseContext } from "../../Config/firebase-context";
-import { useGetCurUserId } from "../../Utils/various";
 
 function RateBtn({ rating = 1, movieId, mediaType }) {
   const [input, setInput] = useState(rating);
@@ -30,9 +30,9 @@ function RateBtn({ rating = 1, movieId, mediaType }) {
 
   return (
     <>
-      <button onClick={rateBtnClicked}>
+      <CircleYellowBtn onClick={rateBtnClicked}>
         <FaStar />
-      </button>
+      </CircleYellowBtn>
       {showInput && (
         <input
           type="number"

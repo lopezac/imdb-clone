@@ -1,9 +1,11 @@
 import { string } from "prop-types";
 
+import { GrayItalicPara } from "../../../Assets/Styles/Para";
+
 function Overview({ tagline, overview }) {
   return (
     <>
-      <p>{tagline}</p>
+      <GrayItalicPara>{tagline}</GrayItalicPara>
       <div>
         <h3>Overview</h3>
         <p>{overview}</p>

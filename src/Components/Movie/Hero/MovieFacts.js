@@ -1,13 +1,15 @@
 import { number, array, string } from "prop-types";
+
+import { RowDotList } from "../../../Assets/Styles/List";
 import { formatDate, formatArray, formatMinutes } from "../../../Utils/format";
 
 function MovieFacts({ release_date, genres, runtime }) {
   return (
-    <div>
-      <p>{formatDate(release_date)}</p>
-      <p>{formatArray(genres)}</p>
-      <p>{formatMinutes(runtime)}</p>
-    </div>
+    <RowDotList>
+      <li>{formatDate(release_date)}</li>
+      <li>{formatArray(genres)}</li>
+      <li>{formatMinutes(runtime)}</li>
+    </RowDotList>
   );
 }
 

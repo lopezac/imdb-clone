@@ -7,6 +7,13 @@ export const List = styled.ul`
   cursor: pointer;
 `;
 
+export const Scroller = styled(List)`
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  column-gap: 20px;
+`;
+
 export const MenuList = styled(List)(
   ({ theme }) => `
     border-bottom: 1px solid ${theme.lighterGray};
@@ -27,8 +34,15 @@ export const MenuList = styled(List)(
 export const WrapList = styled(List)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  row-gap: 20px;
 `;
 
 export const MainMenuList = styled.div`
   margin: 20px 0 10px 20px;
+`;
+
+export const RowDotList = styled(List)`
+  display: flex;
+  column-gap: 10px;
+  font-size: 0.9rem;
 `;

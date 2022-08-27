@@ -1,11 +1,13 @@
 import { func } from "prop-types";
 import { FaBookmark } from "react-icons/fa";
 
+import { CircleBlueBtn } from "../../Assets/Styles/Button";
+
 function WatchlistBtn({ handleClick }) {
   return (
-    <button onClick={() => handleClick("watchlist")}>
+    <CircleBlueBtn onClick={() => handleClick("watchlist")}>
       <FaBookmark />
-    </button>
+    </CircleBlueBtn>
   );
 }
 

@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { object } from "prop-types";
 
 import { capitalize } from "../../../Utils/format";
-import { Scroller } from "../../../Assets/Styles/Scroller";
 import VideoCard from "../../Card/VideoCard";
 import PosterCard from "../../Card/PosterCard";
+import { Scroller } from "../../../Assets/Styles/List";
+import { SectionDiv } from "../MovieDivs";
 
 function Media({ videos, images }) {
   const [media, setMedia] = useState([]);
@@ -33,34 +34,32 @@ function Media({ videos, images }) {
   }
 
   return (
-    <div>
-      <div>
-        <h2>Media</h2>
-        <ul>
-          {Object.entries(media).map(([name, content]) => {
+    <SectionDiv>
+      <h2>Media</h2>
+      <ul>
+        {Object.entries(media).map(([name, content]) => {
+          return (
+            <li key={name} onClick={changeCurrent}>
+              {capitalize(name)} {content.length}
+            </li>
+          );
+        })}
+      </ul>
+      <Scroller>
+        {content &&
+          content.map((item) => {
             return (
-              <li key={name} onClick={changeCurrent}>
-                {capitalize(name)} {content.length}
+              <li>
+                {current === "videos" ? (
+                  <VideoCard name={item.name} url={item.key} />
+                ) : (
+                  <PosterCard url={item.file_path} />
+                )}
               </li>
             );
           })}
-        </ul>
-        <Scroller>
-          {content &&
-            content.map((item) => {
-              return (
-                <li>
-                  {current === "videos" ? (
-                    <VideoCard name={item.name} url={item.key} />
-                  ) : (
-                    <PosterCard url={item.file_path} />
-                  )}
-                </li>
-              );
-            })}
-        </Scroller>
-      </div>
-    </div>
+      </Scroller>
+    </SectionDiv>
   );
 }
 

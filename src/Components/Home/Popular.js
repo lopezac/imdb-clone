@@ -1,10 +1,10 @@
 import { string, array } from "prop-types";
-import { SmallerSubTitle } from "../../Assets/Styles/Para";
 
-import { Scroller } from "../../Assets/Styles/Scroller";
-import { getDate, getTitle } from "../../Utils/various";
+import { Scroller } from "../../Assets/Styles/List";
+import { SmallerSubTitle } from "../../Assets/Styles/Para";
 import MovieHomeCard from "../Card/MovieHomeCard";
 import { ColumnHeader, HomeSection } from "./Home";
+import { getDate, getTitle } from "../../Utils/various";
 
 function Popular({ section, title, movies }) {
   if (!movies) return;

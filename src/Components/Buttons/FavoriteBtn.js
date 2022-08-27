@@ -2,15 +2,17 @@ import { func } from "prop-types";
 import { FaHeart } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
+import { CircleRoseBtn } from "../../Assets/Styles/Button";
+
 function FavoriteBtn({ handleClick }) {
   // const [activated, setActivated] = useState(false);
 
   // useEffect(() => {}, []);
 
   return (
-    <button onClick={() => handleClick("favorites")}>
+    <CircleRoseBtn onClick={() => handleClick("favorites")}>
       <FaHeart />
-    </button>
+    </CircleRoseBtn>
   );
 }
 

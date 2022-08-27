@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { StyledLink } from "../../../Assets/Styles/Link";
 import { joinUpperCase } from "../../../Utils/format";
 import { WrapList } from "../../../Assets/Styles/List";
+import { SmallWhitePara, StrongSmallPara } from "../../../Assets/Styles/Para";
 
 function CreatorsList({ crew }) {
   const [creators, setCreators] = useState({});
@@ -44,9 +45,9 @@ function CreatorsList({ crew }) {
         return (
           <li key={creator[0]}>
             <StyledLink to={`/person/${creator[1].id}`}>
-              <p>{creator[0]}</p>
-              <p>{joinUpperCase(creator[1].jobs)}</p>
+              <StrongSmallPara>{creator[0]}</StrongSmallPara>
             </StyledLink>
+            <SmallWhitePara>{joinUpperCase(creator[1].jobs)}</SmallWhitePara>
           </li>
         );
       })}
