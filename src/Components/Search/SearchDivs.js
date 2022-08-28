@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const SearchDiv = styled.div`
+import { TopPadRowWrapper } from "../../Assets/Styles/Wrapper";
+
+export const SearchDiv = styled(TopPadRowWrapper)`
   display: grid;
   grid-template-areas: "sidebar main";
   grid-template-columns: auto 1fr;

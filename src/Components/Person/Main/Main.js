@@ -4,12 +4,13 @@ import { MainDiv } from "../PersonDivs";
 import Acting from "./Acting";
 import Biography from "./Biography";
 import KnownFor from "./KnownFor";
+import { SmallTitle } from "../../../Assets/Styles/Para";
 
 function Main({ data }) {
   if (!data) return;
   return (
     <MainDiv>
-      <h1>{data.name}</h1>
+      <SmallTitle>{data.name}</SmallTitle>
       <Biography biography={data.biography} />
       <KnownFor movies={data.movie_credits.cast} />
       <Acting credits={data.combined_credits} />

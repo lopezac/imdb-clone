@@ -1,5 +1,6 @@
 import { Scroller } from "../../../Assets/Styles/List";
 import KnownMovieCard from "../../Card/KnownMovieCard";
+import { SmallestSubTitle } from "../../../Assets/Styles/Para";
 
 function KnownFor({ movies }) {
   function sortMovies(movies) {
@@ -8,7 +9,7 @@ function KnownFor({ movies }) {
 
   return (
     <div>
-      <h2>Known For</h2>
+      <SmallestSubTitle>Known For</SmallestSubTitle>
       <Scroller>
         {sortMovies(movies)
           .slice(0, 8)

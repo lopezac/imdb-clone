@@ -46,3 +46,8 @@ export const RowDotList = styled(List)`
   column-gap: 10px;
   font-size: 0.9rem;
 `;
+
+export const WrapRowsList = styled(RowDotList)`
+  flex-wrap: wrap;
+  row-gap: 5px;
+`;

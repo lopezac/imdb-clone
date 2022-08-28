@@ -2,15 +2,18 @@ import { number, string } from "prop-types";
 import { StyledLink } from "../../Assets/Styles/Link";
 
 import { getImg } from "../../Utils/various";
+import { SeasonImg } from "../../Assets/Styles/Image";
+import { CenterCard } from "../../Assets/Styles/Card";
+import { SmallPara } from "../../Assets/Styles/Para";
 
 function KnownMovieCard({ id, img, title }) {
   return (
-    <li>
+    <CenterCard>
       <StyledLink to={`/movie/${id}`}>
-        <img src={getImg(img)} alt={title} width="100" />
-        <p>{title}</p>
+        <SeasonImg src={getImg(img)} alt={title} width="100" />
+        <SmallPara>{title}</SmallPara>
       </StyledLink>
-    </li>
+    </CenterCard>
   );
 }
 

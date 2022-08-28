@@ -12,6 +12,7 @@ export const HeroDiv = styled.div`
   grid-area: hero;
   display: flex;
   padding: 30px 40px;
+  align-items: center;
   width: 100vw;
   background: linear-gradient(
       ${(props) => (props.color ? props.color[1] : "#151210")}CC,
@@ -44,11 +45,14 @@ export const MainDiv = styled.div(
 
 export const SidebarDiv = styled.div`
   grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
 `;
 
 export const SectionDiv = styled.div(
   ({ theme }) => `
-    border-bottom: 10px solid ${theme.lightStone};
+    border-bottom: 1px solid ${theme.lightStone};
     display: flex;
     flex-direction: column;
     row-gap: 30px;

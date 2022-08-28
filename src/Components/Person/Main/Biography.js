@@ -1,10 +1,12 @@
 import { string } from "prop-types";
 
+import { SmallestSubTitle, SmallerPara } from "../../../Assets/Styles/Para";
+
 function Biography({ biography }) {
   return (
     <div>
-      <h2>Biography</h2>
-      <p>{biography}</p>
+      <SmallestSubTitle>Biography</SmallestSubTitle>
+      <SmallerPara>{biography}</SmallerPara>
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import { getDate, getTitle } from "../../../Utils/various";
 import CreditCard from "../../Card/CreditCard";
+import { SmallestSubTitle } from "../../../Assets/Styles/Para";
+import { List } from "../../../Assets/Styles/List";
 
 function Acting({ credits }) {
   console.log("credits", credits);
@@ -19,8 +21,8 @@ function Acting({ credits }) {
 
   return (
     <div>
-      <h2>Acting</h2>
-      <ol>
+      <SmallestSubTitle>Acting</SmallestSubTitle>
+      <List>
         {sortByYear(credits.cast).map((credit) => {
           return (
             <CreditCard
@@ -33,12 +35,12 @@ function Acting({ credits }) {
             />
           );
         })}
-      </ol>
+      </List>
       {getDepartments(credits.crew).map((department) => {
         return (
           <div key={department}>
-            <h2>{department}</h2>
-            <ol>
+            <SmallestSubTitle>{department}</SmallestSubTitle>
+            <List>
               {sortByYear(credits.crew).map((credit) => {
                 return (
                   credit.department === department && (
@@ -53,7 +55,7 @@ function Acting({ credits }) {
                   )
                 );
               })}
-            </ol>
+            </List>
           </div>
         );
       })}

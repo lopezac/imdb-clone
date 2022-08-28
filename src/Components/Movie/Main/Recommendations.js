@@ -1,6 +1,7 @@
 import { array } from "prop-types";
 
 import { Scroller } from "../../../Assets/Styles/List";
+import { SmallestSubTitle } from "../../../Assets/Styles/Para";
 import RecommendCard from "../../Card/RecommendCard";
 import { SectionDiv } from "../MovieDivs";
 
@@ -13,7 +14,7 @@ function Recommendations({ data }) {
 
   return (
     <SectionDiv>
-      <h2>Recommendations</h2>
+      <SmallestSubTitle>Recommendations</SmallestSubTitle>
       <Scroller>
         {data.map((movie) => {
           return (

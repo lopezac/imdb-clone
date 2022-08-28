@@ -1,14 +1,18 @@
 import { array } from "prop-types";
 
+import { SmallestSubTitle } from "../../../Assets/Styles/Para";
+import { WrapRowsList } from "../../../Assets/Styles/List";
+import { LiCardText } from "../../../Assets/Styles/Card";
+
 function Keywords({ keywords }) {
   return (
     <div>
-      <h3>Keywords</h3>
-      <ul>
+      <SmallestSubTitle>Keywords</SmallestSubTitle>
+      <WrapRowsList>
         {keywords.map((keyword) => {
-          return <li key={keyword.name}>{keyword.name}</li>;
+          return <LiCardText key={keyword.name}>{keyword.name}</LiCardText>;
         })}
-      </ul>
+      </WrapRowsList>
     </div>
   );
 }

@@ -1,12 +1,14 @@
 import { number, array } from "prop-types";
-import { formatArray, formatMinutes } from "../../../Utils/format";
+
+import { formatArray } from "../../../Utils/format";
+import { RowDotList } from "../../../Assets/Styles/List";
 
 function TvFacts({ genres, runtime }) {
   return (
-    <div>
-      <p>{formatArray(genres)}</p>
-      <p>{runtime}m</p>
-    </div>
+    <RowDotList>
+      <li>{formatArray(genres)}</li>
+      <li>{runtime}m</li>
+    </RowDotList>
   );
 }
 

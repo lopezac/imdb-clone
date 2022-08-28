@@ -2,6 +2,12 @@ import { object } from "prop-types";
 
 import { getYear } from "../../../Utils/format";
 import { getImg } from "../../../Utils/various";
+import {
+  FlexColumnDiv,
+  BorderRowWrapper,
+} from "../../../Assets/Styles/Wrapper";
+import { SmallestSubTitle, SmallBlack } from "../../../Assets/Styles/Para";
+import { SeasonImg } from "../../../Assets/Styles/Image";
 
 function LatestSeason(seasons) {
   if (!seasons) return;
@@ -13,20 +19,20 @@ function LatestSeason(seasons) {
   const season = getSeason(seasons);
 
   return (
-    <div>
-      <h2>Last Season</h2>
-      <div>
-        <img src={getImg(season.poster_path)} alt={season.name} width="125" />
+    <FlexColumnDiv>
+      <SmallestSubTitle>Last Season</SmallestSubTitle>
+      <BorderRowWrapper>
+        <SeasonImg src={getImg(season.poster_path)} alt={season.name} />
         <div>
-          <h3>{season.name}</h3>
-          <p>
+          <SmallestSubTitle>{season.name}</SmallestSubTitle>
+          <SmallBlack>
             {getYear(season.air_date)} | {season.episode_count} Episodes
-          </p>
+          </SmallBlack>
           <p>{season.overview}</p>
         </div>
-      </div>
+      </BorderRowWrapper>
       <p>View All Seasons</p>
-    </div>
+    </FlexColumnDiv>
   );
 }
 

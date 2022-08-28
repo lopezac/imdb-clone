@@ -40,10 +40,8 @@ export default function LeftNav() {
 
       {categories.map((category) => {
         return (
-          <li onMouseLeave={hideMenu}>
-            <p onMouseEnter={toggleShowMenu} key={category}>
-              {category}
-            </p>
+          <li onMouseLeave={hideMenu} key={category}>
+            <p onMouseEnter={toggleShowMenu}>{category}</p>
             {showMenu && categoryName === category && menu}
           </li>
         );

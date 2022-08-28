@@ -22,6 +22,15 @@ export const SmallPara = styled(Para)`
   font-size: 0.8rem;
 `;
 
+export const SmallerPara = styled(Para)`
+  font-size: 0.9rem;
+  line-height: 1.35rem;
+`;
+
+export const MediumPara = styled(Para)`
+  font-size: 0.98rem;
+`;
+
 export const SmallWhitePara = styled(Para)`
   color: white;
   font-weight: 100;
@@ -32,6 +41,10 @@ export const Title = styled.h1`
   margin: 0;
   font-size: 2.9rem;
   font-weight: 700;
+`;
+
+export const SmallTitle = styled(Title)`
+  font-size: 2rem;
 `;
 
 export const SubTitle = styled.h2`
@@ -46,6 +59,10 @@ export const MovieTitle = styled(SubTitle)`
 
 export const SmallerSubTitle = styled(SubTitle)`
   font-size: 1.5rem;
+`;
+
+export const WhiteSubTitle = styled(SmallerSubTitle)`
+  color: white;
 `;
 
 export const SmallestSubTitle = styled(SubTitle)`

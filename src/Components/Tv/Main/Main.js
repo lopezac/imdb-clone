@@ -2,7 +2,6 @@ import { object } from "prop-types";
 
 import Media from "../../Movie/Main/Media";
 import Recommendations from "../../Movie/Main/Recommendations";
-import Reviews from "../../Movie/Main/Reviews";
 import TopBilledCast from "../../Movie/Main/TopBilledCast";
 import { MainDiv } from "../../Movie/MovieDivs";
 import LatestSeason from "./LatestSeason";
@@ -12,7 +11,6 @@ function Main({ data }) {
     <MainDiv>
       <TopBilledCast cast={data.aggregate_credits.cast} />
       <LatestSeason seasons={data.seasons} />
-      <Reviews />
       <Media images={data.images} videos={data.videos} />
       <Recommendations data={data.recommendations.results} />
     </MainDiv>

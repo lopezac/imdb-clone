@@ -17,7 +17,7 @@ function Hero({ data }) {
     cors: true,
     colors: 5,
   });
-  console.log("color", colors);
+
   return (
     <HeroDiv img={getImg(data.backdrop_path)} color={colors}>
       <PosterCard

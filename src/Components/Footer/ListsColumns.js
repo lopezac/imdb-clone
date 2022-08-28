@@ -5,28 +5,26 @@ import { ListTitle } from "../../Assets/Styles/Para";
 export default function ListsColumns() {
   const data = {
     "The Basics": [
-      "About TMDB", "Contact Us", "Support Forums", "API", "System Status"
+      "About TMDB",
+      "Contact Us",
+      "Support Forums",
+      "API",
+      "System Status",
     ],
-    "Get Involved": [
-      "Contribution Bible", "Add New Movie", "Add New TV Show"
-    ],
-    "Community": [
-      "Guidelines", "Discussions", "Leaderboard", "Twitter"
-    ],
-    "Legal": [
-      "Terms of Use", "API Terms of Use", "Privacy Policy"
-    ]
+    "Get Involved": ["Contribution Bible", "Add New Movie", "Add New TV Show"],
+    Community: ["Guidelines", "Discussions", "Leaderboard", "Twitter"],
+    Legal: ["Terms of Use", "API Terms of Use", "Privacy Policy"],
   };
 
   return (
     <>
       {Object.entries(data).map((column) => {
         return (
-          <ListDiv>
+          <ListDiv key={column[0]}>
             <ListTitle>{column[0]}</ListTitle>
             <List>
               {column[1].map((row) => {
-                return <li>{row}</li>;
+                return <li key={row}>{row}</li>;
               })}
             </List>
           </ListDiv>
@@ -34,4 +32,4 @@ export default function ListsColumns() {
       })}
     </>
   );
-};
+}

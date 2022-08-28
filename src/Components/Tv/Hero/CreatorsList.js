@@ -1,6 +1,9 @@
 import { array } from "prop-types";
 import { useEffect, useState } from "react";
 
+import { WrapList } from "../../../Assets/Styles/List";
+import { SmallWhitePara, StrongSmallPara } from "../../../Assets/Styles/Para";
+
 function CreatorsList({ created_by }) {
   const [creators, setCreators] = useState([]);
 
@@ -15,16 +18,16 @@ function CreatorsList({ created_by }) {
 
   if (!creators) return null;
   return (
-    <ul>
+    <WrapList>
       {creators.map((name) => {
         return (
           <li key={name}>
-            <p>{name}</p>
-            <p>Creator</p>
+            <StrongSmallPara>{name}</StrongSmallPara>
+            <SmallWhitePara>Creator</SmallWhitePara>
           </li>
         );
       })}
-    </ul>
+    </WrapList>
   );
 }
 
