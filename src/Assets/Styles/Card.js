@@ -33,8 +33,16 @@ export const CenterCard = styled.li`
   text-align: center;
 `;
 
-export const LiBorderInfo = styled.li`
+export const LiBorderStone = styled.li`
   border: 1px solid ${(props) => props.theme.lightStone};
+`;
+
+export const LiFlexRow = styled.li`
+  display: flex;
+  column-gap: 20px;
+`;
+
+export const LiBorderInfo = styled(LiBorderStone)`
   border-top: none;
   padding: 20px 15px;
   font-size: 0.95rem;
@@ -45,5 +53,12 @@ export const LiBorderInfo = styled.li`
 
   svg {
     margin: 0 20px;
+  }
+`;
+
+export const BorderedLi = styled(LiBorderStone)`
+  border-top: none;
+  :last-child {
+    border-bottom: none;
   }
 `;

@@ -1,5 +1,9 @@
 import { array, func } from "prop-types";
+
 import { SidebarDiv } from "../SearchDivs";
+import { WhiteSubHeading } from "../../../Assets/Styles/Para";
+import { MenuList } from "../../../Assets/Styles/List";
+import { BorderedLi } from "../../../Assets/Styles/Card";
 
 function SettingsPanel({ data, updateSection }) {
   const options = [
@@ -10,19 +14,19 @@ function SettingsPanel({ data, updateSection }) {
 
   return (
     <SidebarDiv>
-      <h2>Search Results</h2>
-      <ul>
+      <WhiteSubHeading>Search Results</WhiteSubHeading>
+      <MenuList>
         {options.map((option) => {
           return (
-            <li
+            <BorderedLi
               onClick={updateSection.bind(this, option.name)}
               key={option.name}
             >
               {option.value}
-            </li>
+            </BorderedLi>
           );
         })}
-      </ul>
+      </MenuList>
     </SidebarDiv>
   );
 }

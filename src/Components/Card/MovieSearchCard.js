@@ -1,20 +1,29 @@
 import { string, number } from "prop-types";
-import { StyledLink } from "../../Assets/Styles/Link";
 
 import { getImg } from "../../Utils/various";
+import { formatDateShort } from "../../Utils/format";
+import { StyledLink } from "../../Assets/Styles/Link";
+import { LiFlexRow } from "../../Assets/Styles/Card";
+import {
+  SmallerLightGray,
+  OverflowSubTitle,
+  OverflowPara,
+} from "../../Assets/Styles/Para";
 
 function MovieSearchCard({ img, title, date, overview, id, section }) {
   return (
-    <li>
+    <LiFlexRow>
       <StyledLink to={`/${section}/${id}`}>
         <img src={getImg(img)} alt={title} width="100" />
-        <div>
-          <h3>{title}</h3>
-          <p>{date}</p>
-          <p>{overview}</p>
-        </div>
       </StyledLink>
-    </li>
+      <div>
+        <StyledLink to={`/${section}/${id}`}>
+          <OverflowSubTitle>{title}</OverflowSubTitle>
+        </StyledLink>
+        <SmallerLightGray>{formatDateShort(date)}</SmallerLightGray>
+        <OverflowPara>{overview}</OverflowPara>
+      </div>
+    </LiFlexRow>
   );
 }
 

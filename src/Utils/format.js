@@ -21,6 +21,7 @@ export function formatDate(dateStr) {
 }
 
 export function formatDateShort(dateString) {
+  if (!dateString) return "";
   const date = dateString.split("-");
   return format(new Date(date[0], date[1] - 1, date[2]), "MMM dd, y");
 }

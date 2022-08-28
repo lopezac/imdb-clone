@@ -10,6 +10,8 @@ export const SearchDiv = styled(TopPadRowWrapper)`
 
 export const SidebarDiv = styled.div`
   grid-area: sidebar;
+  width: 258px;
+  border-radius: 10px;
 `;
 export const MainDiv = styled.div`
   grid-area: main;
