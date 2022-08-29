@@ -4,13 +4,13 @@ import { getDate, getTitle } from "../../../Utils/various";
 import MovieSearchCard from "../../Card/MovieSearchCard";
 import PersonSearchCard from "../../Card/PersonSearchCard";
 import { MainDiv } from "../SearchDivs";
-import { List } from "../../../Assets/Styles/List";
+import { ListRowGap } from "../../../Assets/Styles/List";
 
 function SearchPage({ data, section }) {
   if (!data) return;
   return (
     <MainDiv>
-      <List>
+      <ListRowGap>
         {data.map((item) => {
           return item.gender ? (
             <PersonSearchCard
@@ -33,7 +33,7 @@ function SearchPage({ data, section }) {
             />
           );
         })}
-      </List>
+      </ListRowGap>
     </MainDiv>
   );
 }

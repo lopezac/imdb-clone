@@ -3,7 +3,7 @@ import useImageColor from "use-image-color";
 import { useState, useEffect, useCallback } from "react";
 
 import TvFacts from "./TvFacts";
-import { getImg } from "../../../Utils/various";
+import { getImg, isAMovieOrTv } from "../../../Utils/various";
 import Title from "./Title";
 import HeroButtons from "../../Movie/Hero/HeroButtons";
 import Overview from "../../Movie/Hero/Overview";
@@ -26,7 +26,7 @@ function Hero({ data }) {
       <HeroInfoDiv>
         <Title title={data.name} airDate={data.first_air_date} />
         <TvFacts genres={data.genres} runtime={data.episode_run_time[0]} />
-        <HeroButtons />
+        <HeroButtons movieId={data.id} mediaType={isAMovieOrTv(data)} />
         <Overview tagline={data.tagline} overview={data.overview} />
         <CreatorsList created_by={data.created_by} />
       </HeroInfoDiv>

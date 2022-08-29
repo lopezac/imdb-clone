@@ -1,14 +1,21 @@
 import { object } from "prop-types";
 
 import { getMonthAndYear } from "../../Utils/format";
+import { GapPadBackground, GapBaselineDiv } from "../../Assets/Styles/Wrapper";
+import { CircleProfileImg } from "../../Assets/Styles/Image";
+import { WhiteMovieTitle, SmallerLightGray } from "../../Assets/Styles/Para";
 
 function Header({ user }) {
   return (
-    <div>
-      <img src={user.photoURL} alt={user.name} />
-      <h1>{user.name}</h1>
-      <p>Member since {getMonthAndYear(user.createdAt)}</p>
-    </div>
+    <GapPadBackground>
+      <CircleProfileImg src={user.photoURL} alt={user.name} />
+      <GapBaselineDiv>
+        <WhiteMovieTitle>{user.name}</WhiteMovieTitle>
+        <SmallerLightGray>
+          Member since {getMonthAndYear(user.createdAt)}
+        </SmallerLightGray>
+      </GapBaselineDiv>
+    </GapPadBackground>
   );
 }
 

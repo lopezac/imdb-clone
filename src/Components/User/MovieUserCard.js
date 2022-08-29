@@ -1,14 +1,15 @@
 import { string, number, object } from "prop-types";
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { StyledLink } from "../../Assets/Styles/Link";
-import { FirebaseContext } from "../../Config/firebase-context";
 
+import MovieBtns from "./MovieBtns";
+import { FirebaseContext } from "../../Config/firebase-context";
 import { getImg } from "../../Utils/various";
-import FavoriteBtn from "../Buttons/FavoriteBtn";
-import RateBtn from "../Buttons/RateBtn";
-import RemoveBtn from "../Buttons/RemoveBtn";
-import WatchlistBtn from "../Buttons/WatchlistBtn";
+import { StyledLink } from "../../Assets/Styles/Link";
+import { LiFlexRow } from "../../Assets/Styles/Card";
+import { BorderCenterDiv } from "../../Assets/Styles/Wrapper";
+import { UserMovieImg } from "../../Assets/Styles/Image";
+import TitleDate from "../Reusable/TitleDate";
 
 function MovieUserCard({
   title,
@@ -25,30 +26,23 @@ function MovieUserCard({
   if (!userData) return;
   console.log("userData, ", userData);
   return (
-    <li>
+    <LiFlexRow>
       <StyledLink to={`/${mediaType}/${id}`}>
-        <img src={getImg(img)} alt={title} width="125" />
+        <UserMovieImg src={getImg(img)} alt={title} width="125" />
       </StyledLink>
-      <div>
-        <StyledLink to={`/${mediaType}/${id}`}>
-          <h2>{title}</h2>
-        </StyledLink>
-        <p>{date}</p>
-        <p>{overview}</p>
+      <BorderCenterDiv>
+        <TitleDate
+          id={id}
+          section={mediaType}
+          overview={overview}
+          title={title}
+          date={date}
+        />
         {currentUserId === firebase.getUserId() && (
-          <>
-            <FavoriteBtn />
-            <WatchlistBtn />
-            <RateBtn
-              rating={userData.ratings}
-              mediaType={mediaType}
-              movieId={id}
-            />
-            <RemoveBtn movieId={id} mediaType={mediaType} />
-          </>
+          <MovieBtns id={id} mediaType={mediaType} ratings={userData.ratings} />
         )}
-      </div>
-    </li>
+      </BorderCenterDiv>
+    </LiFlexRow>
   );
 }
 

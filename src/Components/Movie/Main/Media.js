@@ -6,13 +6,16 @@ import { getImg } from "../../../Utils/various";
 import VideoCard from "../../Card/VideoCard";
 import { Scroller, RowDotList } from "../../../Assets/Styles/List";
 import { SectionDiv } from "../MovieDivs";
-import { StrongMediumPara, SmallestSubTitle } from "../../../Assets/Styles/Para";
+import {
+  StrongMediumPara,
+  SmallestSubTitle,
+} from "../../../Assets/Styles/Para";
 import { RowWrapper } from "../../../Assets/Styles/Wrapper";
 import { RecommendImg } from "../../../Assets/Styles/Image";
 
 function Media({ videos, images }) {
   const [media, setMedia] = useState([]);
-  const [current, setCurrent] = useState("posters");
+  const [current, setCurrent] = useState("backdrops");
   const [content, setContent] = useState(null);
 
   useEffect(() => {
@@ -23,7 +26,12 @@ function Media({ videos, images }) {
     if (!current) return;
     const tempContent = media[current] ? media[current] : [];
     setContent(tempContent.slice(0, 25));
-  }, [current]);
+    console.log("current tempContent", current, tempContent, media);
+  }, [media, current]);
+
+  useEffect(() => {
+    console.log("content", content);
+  }, [content]);
 
   function getMedia() {
     return {
@@ -42,11 +50,11 @@ function Media({ videos, images }) {
       <RowWrapper>
         <SmallestSubTitle>Media</SmallestSubTitle>
         <RowDotList>
-          {Object.entries(media).map(([name, content]) => {
+          {Object.entries(media).map(([name, mediaContent]) => {
             return (
               <li key={name} onClick={changeCurrent}>
                 <StrongMediumPara>
-                  {capitalize(name)} {content.length}
+                  {capitalize(name)} {mediaContent.length}
                 </StrongMediumPara>
               </li>
             );
@@ -59,9 +67,9 @@ function Media({ videos, images }) {
             return (
               <li>
                 {current === "videos" ? (
-                  <VideoCard name={item.name} url={item.key} />
+                  <VideoCard name={item.name} url={item.key} key={item.key} />
                 ) : (
-                  <RecommendImg src={getImg(item.file_path)} alt="Media img"/>
+                  <RecommendImg src={getImg(item.file_path)} alt="Media img" />
                 )}
               </li>
             );

@@ -8,10 +8,14 @@ import FavoriteBtn from "../../Buttons/FavoriteBtn";
 import WatchlistBtn from "../../Buttons/WatchlistBtn";
 import RateBtn from "../../Buttons/RateBtn";
 import { ButtonsDiv } from "../MovieDivs";
-import { CircleBlueBtn, TransparentWhiteBtn } from "../../../Assets/Styles/Button";
+import {
+  CircleBlueBtn,
+  TransparentWhiteBtn,
+} from "../../../Assets/Styles/Button";
 
 function HeroButtons({ movieId, mediaType }) {
   const firebase = useContext(FirebaseContext);
+  console.log("mediaType of hero buttons", mediaType);
 
   async function handleClick(section, value = true) {
     if (!firebase.auth().currentUser) return;

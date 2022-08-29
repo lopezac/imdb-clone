@@ -69,9 +69,9 @@ export const TransparentWhiteBtn = styled(TransparentBtnIcon)`
 export const CircleBlueBtn = styled(Btn)(
   ({ theme }) => `
     background-color: ${theme.darkBlue};
-    border-radius: 30px;
+    border-radius: 50%;
     color: white;
-    padding: 15px;
+    padding: 15px 16px;
     font-size: 0.8rem;
   `
 );

@@ -7,18 +7,43 @@ export const List = styled.ul`
   cursor: pointer;
 `;
 
-export const Scroller = styled(List)`
-  overflow-x: scroll;
-  overflow-y: hidden;
-  display: flex;
-  column-gap: 20px;
+export const WrapList = styled(List)`
+  display: grid;
+  row-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
 `;
 
-export const MenuList = styled(List)(
+export const ListFlex = styled(List)`
+  display: flex;
+`;
+
+export const RowDotList = styled(ListFlex)`
+  column-gap: 10px;
+  font-size: 0.9rem;
+`;
+
+export const WrapRowsList = styled(RowDotList)`
+  flex-wrap: wrap;
+  row-gap: 5px;
+`;
+
+export const Scroller = styled(ListFlex)`
+  column-gap: 20px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+`;
+
+export const ListColFlex = styled(ListFlex)`
+  flex-direction: column;
+`;
+
+export const ListRowGap = styled(ListColFlex)`
+  row-gap: 20px;
+`;
+
+export const MenuList = styled(ListColFlex)(
   ({ theme }) => `
     border-bottom: 1px solid ${theme.lighterGray};
-    display: flex;
-    flex-direction: column;
 
     li {
       padding: 10px 20px;
@@ -31,23 +56,6 @@ export const MenuList = styled(List)(
   `
 );
 
-export const WrapList = styled(List)`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: 20px;
-`;
-
 export const MainMenuList = styled.div`
   margin: 20px 0 10px 20px;
-`;
-
-export const RowDotList = styled(List)`
-  display: flex;
-  column-gap: 10px;
-  font-size: 0.9rem;
-`;
-
-export const WrapRowsList = styled(RowDotList)`
-  flex-wrap: wrap;
-  row-gap: 5px;
 `;

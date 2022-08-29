@@ -30,7 +30,6 @@ const firebaseConfig = {
 
 export function Firebase() {
   initializeApp(firebaseConfig);
-  console.log("firebase run");
 
   function db() {
     return getFirestore();
@@ -41,7 +40,6 @@ export function Firebase() {
   }
 
   async function signIn() {
-    console.log("sign in run");
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth(), provider);
@@ -63,7 +61,6 @@ export function Firebase() {
   }
 
   function isUserSignedIn() {
-    console.log("curent", !auth().currentUser, auth().currentUser);
     return !!auth().currentUser;
   }
 
@@ -88,7 +85,6 @@ export function Firebase() {
   }
 
   async function getUserData(id) {
-    console.log("id at getUserData", id);
     const docRef = doc(db(), "users", id);
     const docSnap = await getDoc(docRef);
     return docSnap.data();
@@ -104,12 +100,10 @@ export function Firebase() {
     querySnap.forEach((doc) => {
       data[doc.id] = doc.data();
     });
-    console.log("data", data);
     return data;
   }
 
   async function addUserInteraction(movieId, mediaType, section, value) {
-    console.log("id, media section value", movieId, mediaType, section, value);
     const movieRef = doc(
       db(),
       `users/${getUserId()}/${mediaType}`,

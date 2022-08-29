@@ -39,7 +39,7 @@ export const LiBorderStone = styled.li`
 
 export const LiFlexRow = styled.li`
   display: flex;
-  column-gap: 20px;
+  // column-gap: 20px;
 `;
 
 export const LiBorderInfo = styled(LiBorderStone)`

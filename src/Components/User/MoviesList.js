@@ -2,13 +2,12 @@ import { array, string } from "prop-types";
 
 import { getDate, getTitle } from "../../Utils/various";
 import MovieUserCard from "./MovieUserCard";
+import { ListRowGap } from "../../Assets/Styles/List";
 
 function MoviesList({ movies, mediaType, interactions }) {
-  console.log("movies at list", movies, interactions);
   return (
-    <div>
+    <ListRowGap>
       {movies.map((movie) => {
-        console.log("userdata at list", interactions[movie.id]);
         return (
           <MovieUserCard
             id={movie.id}
@@ -22,7 +21,7 @@ function MoviesList({ movies, mediaType, interactions }) {
           />
         );
       })}
-    </div>
+    </ListRowGap>
   );
 }
 

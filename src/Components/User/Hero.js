@@ -2,13 +2,14 @@ import { object } from "prop-types";
 
 import Header from "./Header";
 import UserNavbar from "./UserNavbar";
+import { ColumnFlex } from "../../Assets/Styles/Wrapper";
 
 function Hero({ user }) {
   return (
-    <div>
+    <ColumnFlex>
       <Header user={user} />
       <UserNavbar />
-    </div>
+    </ColumnFlex>
   );
 }
 

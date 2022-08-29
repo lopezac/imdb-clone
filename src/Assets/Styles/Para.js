@@ -94,6 +94,10 @@ export const MovieTitle = styled(SubTitle)`
   font-size: 2rem;
 `;
 
+export const WhiteMovieTitle = styled(MovieTitle)`
+  color: white;
+`;
+
 export const SmallerSubTitle = styled(SubTitle)`
   font-size: 1.5rem;
 `;

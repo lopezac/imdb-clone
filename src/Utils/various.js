@@ -18,6 +18,10 @@ export function useIsAMovie() {
   return path.includes("movie");
 }
 
+export function useIsMovieOrTv() {
+  return useIsAMovie() ? "movie" : "tv";
+}
+
 export function isAMovieOrTv(data) {
   return data.title ? "movie" : "tv";
 }

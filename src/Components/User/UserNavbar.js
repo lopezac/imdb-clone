@@ -1,19 +1,21 @@
 import { StyledLink } from "../../Assets/Styles/Link";
+import { SmallNav } from "../../Assets/Styles/Navbar";
+import { Para } from "../../Assets/Styles/Para";
 
 function UserNavbar() {
   return (
-    <ul>
-      <li>
+    <SmallNav>
+      <Para>
         <StyledLink to="favorites">Favorites</StyledLink>
-      </li>
-      <li>
+      </Para>
+      <Para>
         <StyledLink to="watchlist">Watchlist</StyledLink>
-      </li>
-      <li>Reviews</li>
-      <li>
+      </Para>
+      <Para>Reviews</Para>
+      <Para>
         <StyledLink to="ratings">Ratings</StyledLink>
-      </li>
-    </ul>
+      </Para>
+    </SmallNav>
   );
 }
 

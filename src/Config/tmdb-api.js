@@ -58,11 +58,14 @@ export async function getTrending(time = "day") {
   return result;
 }
 
-export async function getMoviesData(moviesId) {
+export async function getMoviesData(moviesId, mediaType) {
   let movies = [];
   Object.entries(moviesId).map((id) => {
-    return getMovieData(id[0]).then((movie) => movies.push(movie));
+    if (mediaType === "movie") {
+      return getMovieData(id[0]).then((movie) => movies.push(movie));
+    } else {
+      return getTvData(id[0]).then((tv) => movies.push(tv));
+    }
   });
-  console.log("movieseattmdb", movies, moviesId);
   return movies;
 }

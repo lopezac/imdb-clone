@@ -1,8 +1,10 @@
 import { number, string } from "prop-types";
 import { useContext } from "react";
+import { ImCross } from "react-icons/im";
 
 import { FirebaseContext } from "../../Config/firebase-context";
 import { useGetSection } from "../../Utils/various";
+import { CircleBlueBtn } from "../../Assets/Styles/Button";
 
 function RemoveBtn({ movieId, mediaType }) {
   const section = useGetSection();
@@ -13,7 +15,11 @@ function RemoveBtn({ movieId, mediaType }) {
     await firebase.removeUserInteraction(movieId, section, mediaType);
   }
 
-  return <button onClick={handleClick}>Remove</button>;
+  return (
+    <CircleBlueBtn onClick={handleClick}>
+      <ImCross />
+    </CircleBlueBtn>
+  );
 }
 
 RemoveBtn.propTypes = {
