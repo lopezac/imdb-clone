@@ -14,8 +14,9 @@ Click [here](https://imdb-9b89f.web.app) to see it.
 
 # Technologies Used
 
-- [styled-components](https://styled-components.com/)
 - [ReactJS](https://reactjs.org/)
+- [styled-components](https://styled-components.com/)
+- [TMDB API](https://developers.themoviedb.org/3)
 - [Firebase](https://firebase.google.com/)
 - [Firestore](https://firebase.google.com/docs/firestore/)
 - [Hosting](https://firebase.google.com/docs/hosting/)
