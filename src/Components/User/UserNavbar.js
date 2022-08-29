@@ -15,6 +15,7 @@ function UserNavbar() {
       <Para>
         <StyledLink to="ratings">Ratings</StyledLink>
       </Para>
+      <span>Please double click me! except reviews</span>
     </SmallNav>
   );
 }

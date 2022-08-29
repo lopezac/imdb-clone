@@ -8,7 +8,6 @@ function SignInBtn() {
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
-      console.log("user auth", user);
       setIsUserSignedIn(user ? true : false);
     });
   }, []);

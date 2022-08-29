@@ -13,6 +13,18 @@ export const SmallNav = styled(Navbar)`
   column-gap: 40px;
   padding: 11px 0;
   border-bottom: 1px solid ${(props) => props.theme.lighterGray};
+  position: relative;
+
+  span {
+    display: none;
+  }
+
+  p:hover ~ span {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+  }
 `;
 
 export const SpaceBetweenNav = styled(Navbar)(

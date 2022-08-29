@@ -17,46 +17,27 @@ function UserSection() {
 
   useEffect(() => {
     async function getMoviesIds() {
-      const ids = await firebase.getUserInteractions(
-        userId,
-        section,
-        mediaType
-      );
-      setMoviesIds(ids);
-      console.log(
-        "movies length at mediaType section",
-        movies,
-        moviesIds,
-        userId,
-        section,
-        mediaType,
-        ids
-      );
+      return await firebase.getUserInteractions(userId, section, mediaType);
     }
-    getMoviesIds();
-
-    // getMoviesIds().then((ids) => setMoviesIds(ids));
-  }, [section, mediaType]);
+    getMoviesIds().then((ids) => setMoviesIds(ids));
+  }, [section, mediaType, userId]);
 
   useEffect(() => {
     if (!moviesIds) return;
     async function getInteractions() {
-      const result = await getMoviesData(moviesIds, mediaType);
-      setMovies(result);
-      console.log("moviesIds", moviesIds);
-      console.log("movies length at moviesids", movies, moviesIds);
+      return await getMoviesData(moviesIds, mediaType);
     }
-    getInteractions();
+    getInteractions().then((result) => {
+      if (!result) return;
+      setMovies(result);
+    });
   }, [moviesIds]);
-
-  useEffect(() => {
-    console.log("movies at effect length", movies);
-  }, [movies]);
 
   function changeMediaType(pickedMedia) {
     setMediaType(pickedMedia);
   }
 
+  if (!movies) return;
   return (
     <PadColumnFlex>
       <CenterRowDiv>
@@ -64,7 +45,6 @@ function UserSection() {
         <p onClick={() => changeMediaType("movie")}>Movies</p>
         <p onClick={() => changeMediaType("tv")}>TV</p>
       </CenterRowDiv>
-      <p>{movies && movies.length}</p>
       {movies && (
         <MoviesList
           mediaType={mediaType}

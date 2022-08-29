@@ -5,6 +5,7 @@ import MovieUserCard from "./MovieUserCard";
 import { ListRowGap } from "../../Assets/Styles/List";
 
 function MoviesList({ movies, mediaType, interactions }) {
+  console.log("movies at list", movies);
   return (
     <ListRowGap>
       {movies.map((movie) => {

@@ -14,6 +14,9 @@ export const GapBaselineDiv = styled(SmallGapDiv)`
 
 export const CenterRowDiv = styled(SmallGapDiv)`
   align-items: center;
+  p {
+    cursor: pointer;
+  }
 `;
 
 export const PadRowWrapper = styled(SmallGapDiv)`
