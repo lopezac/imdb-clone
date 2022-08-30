@@ -70,6 +70,12 @@ export const StrongSmallPara = styled(StrongPara)`
   font-size: 0.96rem;
 `;
 
+export const AlignedPara = styled(Para)`
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+`;
+
 export const Title = styled.h1`
   margin: 0;
   font-size: 2.9rem;

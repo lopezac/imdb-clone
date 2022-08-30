@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FooterDiv = styled.div(
-  ({theme}) => `
+  ({ theme }) => `
     background-color: ${theme.darkBlue};
     color: white;
     display: flex;
@@ -10,6 +10,11 @@ export const FooterDiv = styled.div(
     padding: 80px 0 60px 0;
   `
 );
+
+export const SmallFooterDiv = styled(FooterDiv)`
+  background-color: #091824;
+  padding: 10px 0;
+`;
 
 export const JoinColumn = styled.div`
   display: flex;

@@ -10,3 +10,8 @@ export const SocialMediaLink = styled.a`
   color: black;
   font-size: 1.5rem;
 `;
+
+export const GithubLink = styled.a`
+  color: white;
+  text-decoration: none;
+`;
