@@ -41,6 +41,11 @@ export const ColumnFlex = styled(FlexDiv)`
   flex-direction: column;
 `;
 
+export const CenterNoBorderDiv = styled(ColumnFlex)`
+  justify-content: center;
+  padding-left: 20px;
+`;
+
 export const PadColumnFlex = styled(ColumnFlex)`
   padding: 20px 40px;
 `;

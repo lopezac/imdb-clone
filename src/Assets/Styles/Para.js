@@ -32,10 +32,6 @@ export const OverflowPara = styled(SmallerPara)`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-
-  // not needed with above
-  // text-overflow: ellipsis;
-  // white-space: nowrap;
 `;
 
 export const MediumPara = styled(Para)`

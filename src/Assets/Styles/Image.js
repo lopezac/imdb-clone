@@ -4,6 +4,12 @@ export const MovieImg = styled.img`
   border-radius: 10px;
 `;
 
+export const SquareSmallImg = styled(MovieImg)`
+  width: 70px;
+  height: 70px;
+  background-size: cover;
+`;
+
 export const SmallRectangleImg = styled(MovieImg)`
   width: 250px;
   height: 150px;

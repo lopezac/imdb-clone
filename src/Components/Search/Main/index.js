@@ -15,7 +15,7 @@ function SearchPage({ data, section }) {
           return item.gender ? (
             <PersonSearchCard
               id={item.id}
-              title={item.name}
+              name={item.name}
               img={item.profile_path}
               key={item.id}
               mainRoles={item.known_for}

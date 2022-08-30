@@ -1,23 +1,30 @@
 import { string, number, array } from "prop-types";
+
+import { LiFlexRow } from "../../Assets/Styles/Card";
+import { SquareSmallImg } from "../../Assets/Styles/Image";
 import { StyledLink } from "../../Assets/Styles/Link";
+import { SmallerPara, StrongMediumPara } from "../../Assets/Styles/Para";
+import { CenterNoBorderDiv } from "../../Assets/Styles/Wrapper";
 import { getImg, getTitle } from "../../Utils/various";
 
 function PersonSearchCard({ img, name, id, mainRoles, department }) {
   function formatArrayLine(array) {
-    console.log("array", array, mainRoles);
+    console.log("array name", name);
     return array.map((item) => getTitle(item) + ", ");
   }
 
   return (
-    <li>
+    <LiFlexRow>
       <StyledLink to={`/person/${id}`}>
-        <img src={getImg(img)} alt={name} width="50" />
-        <h2>{name}</h2>
-        <p>
-          {department} | {formatArrayLine(mainRoles)}
-        </p>
+        <SquareSmallImg src={getImg(img)} alt={name} width="50" />
       </StyledLink>
-    </li>
+      <CenterNoBorderDiv>
+        <StrongMediumPara>{name}</StrongMediumPara>
+        <SmallerPara>
+          {department} | {formatArrayLine(mainRoles)}
+        </SmallerPara>
+      </CenterNoBorderDiv>
+    </LiFlexRow>
   );
 }
 
