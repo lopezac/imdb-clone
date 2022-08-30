@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   body {
@@ -10,4 +10,14 @@ export const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+`;
+
+export const PageMainDiv = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const FooterMainDiv = styled.div`
+  margin-top: auto;
 `;

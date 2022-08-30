@@ -29,13 +29,7 @@ function RouteSwitch() {
             </Route>
 
             <Route path="tv">
-              <Route path=":tvId/*" element={<Tv />}>
-                <Route path="reviews" />
-                <Route path="seasons" />
-                <Route path="season/:seasonNum">
-                  <Route path="episode/:episodeNum" />
-                </Route>
-              </Route>
+              <Route path=":tvId/*" element={<Tv />} />
             </Route>
 
             <Route path="person">
